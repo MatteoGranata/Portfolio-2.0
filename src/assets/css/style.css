@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'League-Spartan';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(src/assets/font/LeagueSpartan-Black.woff) format('woff');
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
