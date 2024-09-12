@@ -9,7 +9,7 @@
         FULL STACK DEVELOPER
       </h1>
     </div>
-    <div class="flex items-top justify-center w-[30%] h-full w-full">
+    <div class="flex items-top justify-center h-full w-full">
       <div class="flex flex-col items-center">
         <div class="flex flex-row text-[25rem]">
           <p class="w-fit h-fit bg-transparent text-end leading-[7.rem] m">
