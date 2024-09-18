@@ -1,8 +1,5 @@
 <template>
-  <div class="grid grid-cols-40 grid-rows-20 w-full h-screen absolute z-10 mix-blend-difference">
-    <div v-for="( index) in squares" :key="index" class="square w-12 h-12 bg-white opacity-0"
-      @mouseenter="handleMouseEnter($event)"></div>
-  </div>
+  <MouseEvent />
   <div class="font-[League-Spartan] text-[#F0ECE2] bg-[#000000] font-bold flex flex-col w-full h-screen m-0">
     <div class="flex items-center justify-center w-full h-fit">
       <h1 class="text-[8rem]">
@@ -34,14 +31,16 @@
 </template>
 
 <script>
-import PortfolioItem from '../components/PortfolioItem.vue'
+import PortfolioItem from '../components/PortfolioItem.vue';
+import MouseEvent from '../components/MouseEvent.vue';
 import { onMounted, onUnmounted, ref } from 'vue';
 import gsap from 'gsap';
 
 export default {
   name: "HoverChangeColorSquares",
   components: {
-    PortfolioItem
+    PortfolioItem,
+    MouseEvent
   },
   data() {
     return {
