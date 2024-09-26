@@ -1,12 +1,12 @@
 <template>
-    <div class="font-[League-Spartan] w-full h-fit flex justify-center bg-[#0f0f0f]">
+    <div class="font-[Roboto] w-full h-fit flex justify-center bg-[#EADAAD]">
         <div class="flex flex-col">
             <div v-for="(image, index) in images" :key="index"
-                class="section h-screen flex flex-col justify-center items-center relative  bg-[#0f0f0f] ">
+                class="section h-screen flex flex-col justify-center items-center relative  bg-[#EADAAD] ">
                 <MouseEvent />
-                <div class="flex title items-center justify-center w-full h-12 rounded-lg mb-5 bg-[#F0ECE2]">
+                <div class="flex title items-center justify-center w-full h-12 mb-5 border-b-4 border-[#DD5E3F]">
                     <!-- Titolo dell'immagine -->
-                    <div class=" text-[#000000] text-center text-[1.5rem] font-bold w-full h-fit">
+                    <div class=" text-[#DD5E3F] text-start text-[2rem] font-bold w-full h-fit">
                         {{
                             titles[index] }}
                     </div>
@@ -21,8 +21,8 @@
 
 
 <script>
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import AngelImage from "../assets/video/Registrazione_Angel.mp4"
 import CounterVideo from "../assets/video/Registrazione_Contatore.mp4"
 import ReadBooksVideo from "../assets/video/Registrazione_ReadBooks.mp4"
@@ -83,7 +83,7 @@ export default {
                         end: "bottom top",
                         scrub: true,
                         pin: true,
-                        markers: true,
+                        markers: false,
                     },
                 })
                     .fromTo(

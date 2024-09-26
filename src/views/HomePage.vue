@@ -1,14 +1,16 @@
 <template>
+  <TestPage />
+
   <MouseEvent />
-  <div class="font-[League-Spartan] text-[#F0ECE2] bg-[#000000] font-bold flex flex-col w-full h-screen m-0">
+  <div class="font-[Anton] text-[#DD5E3F] bg-[#EADAAD] font-bold flex flex-col w-full h-screen m-0">
     <div class="flex items-center justify-center w-full h-fit">
       <h1 class="text-[8rem]">
         FULL STACK DEVELOPER
       </h1>
     </div>
     <div class="flex items-top justify-center h-full w-full">
-      <div class="flex flex-col items-center">
-        <div class="flex flex-row text-[25rem]">
+      <div class="flex flex-col items-center ">
+        <div class="flex flex-row text-[25rem] font-[Raleway]">
           <p class="w-fit h-fit bg-transparent text-end leading-[7.rem] m">
             M
           </p>
@@ -27,47 +29,25 @@
       </div>
     </div>
   </div>
+  <HelloPage />
   <PortfolioItem />
 </template>
 
 <script>
 import PortfolioItem from '../components/PortfolioItem.vue';
+import HelloPage from './HelloPage.vue';
 import MouseEvent from '../components/MouseEvent.vue';
+import TestPage from './TestPage.vue';
 import { onMounted, onUnmounted, ref } from 'vue';
 import gsap from 'gsap';
 
 export default {
-  name: "HoverChangeColorSquares",
   components: {
     PortfolioItem,
-    MouseEvent
+    MouseEvent,
+    HelloPage,
+    TestPage
   },
-  data() {
-    return {
-      squares: new Array(800).fill(null), // Crea una griglia di 400 quadrati (20x20)
-    };
-  },
-  methods: {
-    handleMouseEnter(event) {
-      const tl = gsap
-        .timeline({ yoyo: false })
-      // Quando il mouse entra nel quadrato, cambia colore con GSAP
-      tl.to(event.target, {
-        opacity: '100%', // Cambia colore (ad esempio, rosso)
-        duration: 0, // Durata della transizione
-        ease: "power2.inOut",
-        borderRadius: 0,
-
-      });
-      tl.to(event.target, {
-        opacity: 0, // Cambia colore (ad esempio, rosso)
-        duration: .1, // Durata della transizione
-        ease: "power2.inOut",
-        borderRadius: 0,
-      }, '+=0.2');
-    },
-  },
-
   setup() {
     const main = ref();
     let ctx;
@@ -147,10 +127,6 @@ export default {
         duration: 1.5,
         ease: "elastic.inOut"
       }, "-=.3")
-
-
-
-
     }, main.value); // <- Scope!
 
     onUnmounted(() => {
