@@ -1,139 +1,159 @@
 <template>
-  <TestPage />
-
-  <MouseEvent />
-  <div class="font-[Anton] text-[#DD5E3F] bg-[#EADAAD] font-bold flex flex-col w-full h-screen m-0">
-    <div class="flex items-center justify-center w-full h-fit">
-      <h1 class="text-[8rem]">
-        FULL STACK DEVELOPER
-      </h1>
-    </div>
-    <div class="flex items-top justify-center h-full w-full">
-      <div class="flex flex-col items-center ">
-        <div class="flex flex-row text-[25rem] font-[Raleway]">
-          <p class="w-fit h-fit bg-transparent text-end leading-[7.rem] m">
-            M
-          </p>
-          <p class="w-fit h-fit bg-transparent text-end leading-[7.rem] g">
-            G
-          </p>
-        </div>
-        <div class="flex flex-row w-fit uppercase">
-          <p id="nome" class="bg-transparent w-fit h-fit mb-5 mr-[20px] text-[4rem] text-end leading-[7.rem] name">
-            Matteo
-          </p>
-          <p id="cognome" class="w-fit bg-transparent h-fit mb-5 text-[4rem] text-end leading-[7.rem] surname">
-            Granata
-          </p>
-        </div>
-      </div>
+  <div ref="container" class="preloader-container">
+    <div class="name-container font-[Roboto] bg-[#EADAAD] text-[#DD5E3F]">
+      <span v-for="(letter, index) in letters" :key="index" class="letter" :ref="el => letterRefs[index] = el">
+        {{ letter }}
+      </span>
+      <!-- Lettere grandi "G" e "M" che appariranno alla fine -->
+      <span class="final-letter" ref="letterG">GRANATA</span>
+      <span class="final-letter" ref="letterM">MATTEO</span>
     </div>
   </div>
+
+  <!-- Il contenuto principale della pagina sarà visibile solo quando loading è false -->
+  <HeaderPage />
   <HelloPage />
   <PortfolioItem />
 </template>
 
 <script>
-import PortfolioItem from '../components/PortfolioItem.vue';
-import HelloPage from './HelloPage.vue';
-import MouseEvent from '../components/MouseEvent.vue';
-import TestPage from './TestPage.vue';
-import { onMounted, onUnmounted, ref } from 'vue';
-import gsap from 'gsap';
+import { gsap } from "gsap";
+import HeaderPage from "./HeaderPage.vue";
+import HelloPage from "./HelloPage.vue";
+import PortfolioItem from "@/components/PortfolioItem.vue";
 
 export default {
   components: {
-    PortfolioItem,
-    MouseEvent,
+    HeaderPage,
     HelloPage,
-    TestPage
+    PortfolioItem,
   },
-  setup() {
-    const main = ref();
-    let ctx;
+  data() {
+    return {
+      letters: [...".M.A.T.T.E.O.G.R.A.N.A.T.A.."], // Dividi il nome in singole lettere
+      letterRefs: [], // Array per tenere i riferimenti a ogni lettera
+      loading: true,  // Variabile per gestire la visibilità del preloader
+    };
+  },
+  mounted() {
+    this.animateLetters();
+  },
+  methods: {
+    getRandomPosition(min, max) {
+      return Math.random() * (max - min) + min; // Restituisce un valore casuale tra min e max
+    },
+    animateLetters() {
+      const tl = gsap.timeline({
+        repeat: false, // Ripete l'animazione una volta
+        yoyo: false,
+        repeatDelay: false,
+        onComplete: this.hidePreloader, // Nasconde il preloader al termine dell'animazione
+      });
 
-    onMounted(() => {
+      // Prima fase: le lettere si muovono verso il centro
+      this.letterRefs.forEach((letter, index) => {
+        tl.fromTo(
+          letter,
+          {
+            x: this.getRandomPosition(-500, 500),
+            y: this.getRandomPosition(-300, 300),
+            opacity: 1, // Visibili all'inizio
+          },
+          {
+            rotate: 90,
+            x: 0, // Raggiungono il centro
+            y: 0, // Raggiungono il centro
+            opacity: 0, // Si fondono scomparendo
+            duration: 1.5, // Durata dell'animazione
+            delay: index * 0.05, // Ritardo per creare l'effetto a catena
+            ease: "expo.inOut", // Easing per un movimento fluido
+          },
+          0
+        );
+      });
 
-      const name = gsap.utils.toArray('.name');
-      const surname = gsap.utils.toArray('.surname');
+      // Seconda fase: dopo che tutte le lettere sono scomparse, appaiono le lettere "G" e "M"
+      tl.to(
+        this.$refs.letterG,
+        {
+          opacity: 1,
+          x: -160, // Mostra "G"
+          scale: 0.5, // Scala "G"
+          duration: 1, // Durata dell'animazione
+          ease: "power2.inOut", // Easing fluido
+        },
+        "-=.7"
+      ); // Inizia leggermente prima della fine della scomparsa delle lettere
 
-      const M = gsap.utils.toArray('.m');
-      const G = gsap.utils.toArray('.g');
-
-      const tl = gsap
-        .timeline({ repeat: -1, yoyo: false })
-
-
-
-      tl.to([M, G], {
-        rotation: 180,
-        y: (i) => (i === 0 ? -140 : 140),
-        duration: 1.5,
-        ease: "elastic.inOut"
-      })
-
-      tl.to([M, G], {
-        x: (i) => (i === 0 ? 330 : -330),
+      tl.to(
+        this.$refs.letterM,
+        {
+          opacity: 1, // Mostra "M"
+          x: 160, // Mostra "M"
+          scale: 0.5, // Scala "M"
+          duration: 1, // Durata dell'animazione
+          ease: "power2.inOut", // Easing fluido
+        },
+        "-=1"
+      );
+      // Fase finale: nascondi il contenitore del preloader
+      tl.to(this.$refs.container, {
+        y: 1000,
         duration: 1,
-        ease: "elastic.inOut"
-      })
-
-      tl.to([M, G], {
-        rotation: 360,
-        y: 'start',
-        duration: 1.5,
-        ease: "elastic.inOut"
-      })
-
-      tl.to([name, surname], {
-        x: (i) => (i === 0 ? 310 : -280),
-        y: -150,
-        duration: 1.5,
-        ease: "elastic.inOut"
-      }, "-=1.5")
-
-      tl.to([M, G], {
-        rotation: 180,
-        y: (i) => (i === 0 ? 140 : -140),
-        duration: 1.5,
-        ease: "elastic.inOut"
-      })
-      tl.to([name, surname], {
-        y: "start",
-        duration: 1.5,
-        ease: "elastic.inOut"
-      }, "-=2")
-
-      tl.to([M, G], {
-        x: "start",
-        duration: 1,
-        ease: "elastic.inOut"
-      })
-
-      tl.to([M, G], {
-        rotation: 360,
-        y: "start",
-        duration: 1.5,
-        ease: "elastic.inOut"
-      })
-      tl.to([name, surname], {
-        x: 0,
-        y: -150,
-        duration: 1.5,
-        ease: "elastic.inOut",
-      }, "-=1.5")
-      tl.to([name, surname], {
-        y: 0,
-        duration: 1.5,
-        ease: "elastic.inOut"
-      }, "-=.3")
-    }, main.value); // <- Scope!
-
-    onUnmounted(() => {
-      ctx.revert(); // <- Easy Cleanup!
-    });
-
-    return { main };
+        ease: "expo.in",
+      });
+      tl.to(
+        [this.$refs.letterM, this.$refs.letterG],
+        {
+          duration: 0,
+          display: "none" // Mostra "M"
+        }
+      ), "-=.1";
+    },
+    hidePreloader() {
+      this.loading = false; // Nascondi il preloader e mostra la pagina
+    },
   },
 };
 </script>
+
+<style scoped>
+.preloader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #EADAAD;
+  z-index: 9999;
+  /* Assicurati che copra tutto */
+}
+
+.name-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.letter {
+  position: absolute;
+  display: inline-block;
+}
+
+.final-letter {
+  position: absolute;
+  font-size: 10rem;
+  opacity: 0;
+  transform: scale(0);
+  font-weight: bold;
+}
+
+.page-content {
+  visibility: visible;
+}
+</style>
