@@ -1,7 +1,7 @@
 <template>
-    <div class="font-[Roboto] bg-[#EADAAD] justify-center">
+    <div class="font-[Roboto] justify-center">
 
-        <div ref="textContainer" class="p-5 max-w-[80%] h-full m-auto text-start relative left-44 text-[#DD5E3F]">
+        <div ref="textContainer" class="p-5 max-w-[80%] h-full m-auto text-start relative left-44 ">
             <!-- Cicla attraverso le righe e visualizza ogni riga -->
             <!-- <h1 class="text-[5rem]"></h1> -->
             <div v-for="(line, index) in lines" :key="index" class="opacity-0 w-full text-[2.5rem]">

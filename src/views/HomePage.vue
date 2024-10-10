@@ -4,7 +4,6 @@
       <span v-for="(letter, index) in letters" :key="index" class="letter" :ref="el => letterRefs[index] = el">
         {{ letter }}
       </span>
-      <!-- Lettere grandi "G" e "M" che appariranno alla fine -->
       <span class="final-letter" ref="letterG">GRANATA</span>
       <span class="final-letter" ref="letterM">MATTEO</span>
     </div>
