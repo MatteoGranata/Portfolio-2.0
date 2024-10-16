@@ -23,10 +23,10 @@ export default {
 
     const Container = gsap.utils.toArray('.container-effect');
 
-    tl.fromTo(Container, { backgroundColor: "#EADAAD", color: "#DD5E3F" },
+    tl.fromTo(Container, { backgroundColor: "#DD5E3F", color: "#EADAAD" },
       {
-        backgroundColor: "#DD5E3F",
-        color: "#EADAAD",
+        backgroundColor: "#EADAAD",
+        color: "#DD5E3F",
         scrollTrigger: {
           trigger: Container,
           start: "center top",

@@ -1,18 +1,19 @@
 <template>
-  <div ref="container" class="preloader-container">
-    <div class="name-container font-[Roboto] bg-[#EADAAD] text-[#DD5E3F]">
+  <!-- <div ref="container" class="preloader-container bg-[#DD5E3F]">
+    <div class="name-container font-[Roboto]  text-[#EADAAD]">
       <span v-for="(letter, index) in letters" :key="index" class="letter" :ref="el => letterRefs[index] = el">
         {{ letter }}
       </span>
       <span class="final-letter" ref="letterG">GRANATA</span>
       <span class="final-letter" ref="letterM">MATTEO</span>
     </div>
-  </div>
+  </div> -->
 
   <!-- Il contenuto principale della pagina sarà visibile solo quando loading è false -->
   <HeaderPage />
   <HelloPage />
   <PortfolioItem />
+  <FooterPage />
 </template>
 
 <script>
@@ -20,12 +21,14 @@ import { gsap } from "gsap";
 import HeaderPage from "./HeaderPage.vue";
 import HelloPage from "./HelloPage.vue";
 import PortfolioItem from "@/components/PortfolioItem.vue";
+import FooterPage from "./FooterPage.vue";
 
 export default {
   components: {
     HeaderPage,
     HelloPage,
     PortfolioItem,
+    FooterPage
   },
   data() {
     return {
@@ -54,7 +57,7 @@ export default {
         tl.fromTo(
           letter,
           {
-            x: this.getRandomPosition(-500, 500),
+            x: this.getRandomPosition(-600, 600),
             y: this.getRandomPosition(-300, 300),
             opacity: 1, // Visibili all'inizio
           },
@@ -126,7 +129,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #EADAAD;
   z-index: 9999;
   /* Assicurati che copra tutto */
 }

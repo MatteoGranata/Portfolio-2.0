@@ -1,26 +1,26 @@
 <template>
-    <div ref="container" class="font-[Roboto] w-fit h-fit flex flex-col justify-center ">
-        <div class="sticky top-1/4 left-1/4 w-full h-full flex items-center justify-center">
+    <div ref="container" class="font-[Roboto] w-fit h-fit flex flex-col justify-center">
+        <div ref="loader" class="w-full h-screen z-50 bg-white fixed left-0 top-full"></div>
+        <div class="sticky top-1/4 left-1/4 w-full h-full flex items-center justify-center font-[Raleway]">
             <p ref="text" class="text-[20rem] text-center w-fit h-fit">
                 WORKS
             </p>
         </div>
-        <div class="grid grid-cols-2 h-fit">
+        <div class="grid grid-cols-2 h-fit  drop-shadow-md">
             <div v-for="(image, index) in images" :key="index"
                 :class="['section', sectionClasses[index], 'h-screen flex flex-col relative px-10 object-contain', 'perspective']">
                 <div ref="videos" class="w-fit h-fit">
                     <video :src="image" :alt="titles[index]" class="image w-full h-full rounded-lg"
-                        @mousemove="handleMouseMove($event, index)" @mouseleave="handleMouseLeave(index)" autoplay muted
-                        loop>
+                        @mousemove="handleMouseMove($event, index)" @mouseleave="handleMouseLeave(index)"
+                        @click="handleVideoClick(index)" autoplay muted loop>
                     </video>
-                    <div class="text-2xl flex justify-between w-full h-fit shadow-xl">
+                    <div class="text-2xl flex justify-between w-full h-fit ">
                         <p class="">{{ titles[index] }}</p>
                         <p class="">{{ others[index] }}</p>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -29,11 +29,16 @@
 <script>
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import AngelImage from "../assets/video/Registrazione_Angel.mp4";
+
+import PrimoPortfolioVideo from "../assets/video/Registrazione_Primo-Portfolio.mp4";
+import PortfolioRagusaVideo from "../assets/video/Registrazione_Portfolio-Ragusa.mp4";
 import CounterVideo from "../assets/video/Registrazione_Contatore.mp4";
 import ReadBooksVideo from "../assets/video/Registrazione_ReadBooks.mp4";
-import SunneeVideo from "../assets/video/Registrazione_Schermo_Sunnee.mp4";
+// video moove
 import TicTacToeVideo from "../assets/video/Registrazione_Tic-Tac-Toe.mp4";
+import SunneeVideo from "../assets/video/Registrazione_Sunnee.mp4";
+// video orizon
+import AngelVideo from "../assets/video/Registrazione_Angel.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,64 +47,59 @@ export default {
     data() {
         return {
             titles: [
-                "Tic Tac Toe Games",
-                "ReadBooks",
+                "Primo Portfolio",
+                "Portfolio Raugusa",
                 "Counter",
+                "ReadBooks",
+                "Moove",
+                "Tic Tac Toe",
                 "Sunnee",
+                "Orizon",
                 "Angel",
-                "Image 6",
-                "Image 7",
-                "Image 8",
-                "Image 9",
-                "Image 10",
             ],
             others: [
-                "vue",
-                "lalal",
-                "Counter",
-                "Sunnee",
-                "Angel",
-                "Image 6",
-                "Image 7",
-                "Image 8",
-                "Image 9",
-                "Image 10",
+                "CSS | HTML", // primo portfolio
+                "CSS | HTML - Bootstrap", // portfolio ragusa
+                "JavaScript", // counter
+                "JavaScript - Webpack", // readbooks
+                "Typescript", // moove
+                "Vue", // tic tac toe
+                "Vue Router", // sunnee
+                "Node | API-JsonRESTful", // orizon
+                "Vue Router | Node - TailwindCSS - MongoDB Atlas", // angel
             ],
             images: [
-                TicTacToeVideo,
-                ReadBooksVideo,
+                PrimoPortfolioVideo,
+                PortfolioRagusaVideo,
                 CounterVideo,
+                ReadBooksVideo,
+                AngelVideo, // moove
+                TicTacToeVideo,
                 SunneeVideo,
-                AngelImage,
-                AngelImage,
-                AngelImage,
-                AngelImage,
-                AngelImage,
-                AngelImage,
+                AngelVideo, // orizon
+                AngelVideo,
             ],
             colors: [
-                "#FFC0CB", // Colore per il primo video
-                "#ADD8E6", // Colore per il secondo video
-                "#90EE90", // Colore per il terzo video
-                "#FFD700", // Colore per il quarto video
-                "#FFA07A", // Colore per il quinto video
-                "#DDA0DD", // Colore per il sesto video
-                "#FF4500", // Colore per il settimo video
-                "#20B2AA", // Colore per l'ottavo video
-                "#9370DB", // Colore per il nono video
-                "#FF6347", // Colore per il decimo video
+                "#00051C", // Colore per primo portfolio
+                "#2E2E2E", // Colore per portfolio ragusa
+                "#00051C", // Colore per Counter
+                "#FCBA69", // Colore per Readbooks
+                "#FF4500", // Colore per moove
+                "#0D0D0D", // Colore per Tic-Tac-toe
+                "#FFDEAD", // Colore per Sunnee
+                "#20B2AA", // Colore per orizon
+                "#F8F8FF", // Colore per angel
             ],
             textColors: [
-                "#FFC0CB", // Colore per il primo video
-                "#ADD8E6", // Colore per il secondo video
-                "#90EE90", // Colore per il terzo video
-                "#FFD700", // Colore per il quarto video
-                "#FFA07A", // Colore per il quinto video
-                "#DDA0DD", // Colore per il sesto video
-                "#FF4500", // Colore per il settimo video
-                "#20B2AA", // Colore per l'ottavo video
-                "#9370DB", // Colore per il nono video
-                "#FF6347", // Colore per il decimo video
+                "#E2B6FF", // Colore per primo portfolio
+                "#FDD835", // Colore per portfolio ragusa
+                "#E2B6FF", // Colore per Counter
+                "#000000", // Colore per ReadBooks
+                "#FF4500", // Colore per moove
+                "#E4DFD9", // Colore per Tic-Tac-Toe
+                "#000000", // Colore per Sunnee
+                "#20B2AA", // Colore per orizon
+                "#1E293B", // Colore per angel
             ],
             sectionClasses: [
                 "justify-center items-start",
@@ -113,9 +113,41 @@ export default {
                 "justify-center items-start",
                 "justify-end items-end",
             ],
+            path: [
+                "/primo-portfolio",
+                "/portfolio-ragusa",
+                "/counter",
+                "/readbooks",
+                "/moove",
+                "/tic-tac-toe",
+                "/sunnee",
+                "/orizon",
+                "/angel",
+            ]
         };
     },
     methods: {
+        handleVideoClick(index) {
+            const loader = this.$refs.loader;
+            // Seleziona il video cliccato
+            // const container = this.$refs.container;
+
+            // Animazione di espansione
+            gsap.fromTo(loader, { top: '100%', backgroundColor: this.colors[index], }, {
+                duration: 1, // Durata dell'animazione
+                top: 0,
+                ease: "power3.in", // Effetto easing
+                onComplete: () => {
+                    // Una volta terminata l'animazione, mostra il nuovo componente
+                    this.$router.push({ path: this.path[index] }).then(() => {
+                        // Ricarica la pagina solo dopo che la navigazione è stata completata
+                        window.location.reload();
+                    });
+                }
+            });
+
+
+        },
         handleMouseMove(event, index) {
             const video = this.$refs.videos[index]; // Ottieni il video corrispondente
             const container = this.$refs.container;
@@ -141,12 +173,12 @@ export default {
                 transformOrigin: "50% 50%", // Origine della trasformazione
             });
             gsap.to(container, {
-                duration: 1, // Durata dell'animazione
+                duration: .5, // Durata dell'animazione
                 backgroundColor: this.colors[index],
                 ease: "power2.out", // Effetto di easing
             });
             gsap.to(text, {
-                duration: 1, // Durata dell'animazione
+                duration: .5, // Durata dell'animazione
                 color: this.textColors[index],
                 ease: "power2.out", // Effetto di easing
             });
@@ -155,13 +187,6 @@ export default {
             const video = this.$refs.videos[index]; // Ottieni il video corrispondente
             const container = this.$refs.container;
             const text = this.$refs.text;
-
-            // Ripristina il colore di sfondo originale
-            gsap.to(container, {
-                duration: 1, // Durata dell'animazione
-                backgroundColor: "transparent",
-                ease: "power2.out", // Effetto di easing
-            });
             // Utilizza GSAP per riportare la trasformazione a zero (posizione originale)
             gsap.to(video, {
                 duration: 0.5, // Durata dell'animazione
@@ -169,8 +194,15 @@ export default {
                 rotationY: 0, // Ripristina la rotazione sull'asse Y
                 ease: "power2.inOut", // Effetto di easing
             });
+            // Ripristina il colore di sfondo originale
+            gsap.to(container, {
+                duration: .5, // Durata dell'animazione
+                backgroundColor: "transparent",
+                ease: "power2.out", // Effetto di easing
+            });
+
             gsap.to(text, {
-                duration: 1, // Durata dell'animazione
+                duration: .5, // Durata dell'animazione
                 color: "",
                 ease: "power2.inOut", // Effetto di easing
             });

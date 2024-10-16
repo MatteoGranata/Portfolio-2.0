@@ -1,5 +1,5 @@
 <template>
-  <div class="font-[Anton] font-bold flex flex-col w-full h-screen m-0 border">
+  <div class="font-[Roboto] font-bold flex flex-col w-full h-screen m-0">
     <div class="flex items-center justify-center w-full h-fit">
       <h1 class="text-[8rem]">
         FULL STACK DEVELOPER
