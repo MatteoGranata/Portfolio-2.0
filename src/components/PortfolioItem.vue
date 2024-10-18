@@ -61,7 +61,7 @@ export default {
                 "CSS | HTML", // primo portfolio
                 "CSS | HTML - Bootstrap", // portfolio ragusa
                 "JavaScript", // counter
-                "JavaScript - Webpack", // readbooks
+                "JavaScript | HTML | CSS - Webpack - axios", // readbooks
                 "Typescript", // moove
                 "Vue", // tic tac toe
                 "Vue Router", // sunnee
