@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" class="font-[Roboto] w-fit h-fit flex flex-col justify-center">
+    <div ref="container" class="work-section font-[Roboto] w-fit h-fit flex flex-col justify-center">
         <div ref="loader" class="w-full h-screen z-50 bg-white fixed left-0 top-full"></div>
         <div class="sticky top-1/4 left-1/4 w-full h-full flex items-center justify-center font-[Raleway]">
             <p ref="text" class="text-[20rem] text-center w-fit h-fit">
@@ -23,8 +23,6 @@
         </div>
     </div>
 </template>
-
-
 
 <script>
 import gsap from "gsap";

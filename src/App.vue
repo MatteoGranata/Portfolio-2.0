@@ -4,6 +4,7 @@ import { RouterView } from 'vue-router'
 
 <template>
   <div class="container-effect w-full h-fit">
+    <NavBarComponent />
     <RouterView />
   </div>
 </template>
@@ -12,8 +13,12 @@ import { RouterView } from 'vue-router'
 <script>
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import NavBarComponent from './components/NavBarComponent.vue';
 
 export default {
+  components: {
+    NavBarComponent
+  },
   data() {
   },
   mounted() {

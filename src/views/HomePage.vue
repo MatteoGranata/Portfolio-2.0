@@ -1,5 +1,5 @@
 <template>
-  <!-- <div ref="container" class="preloader-container bg-[#DD5E3F]">
+  <div ref="container" class="preloader-container bg-[#DD5E3F]">
     <div class="name-container font-[Roboto]  text-[#EADAAD]">
       <span v-for="(letter, index) in letters" :key="index" class="letter" :ref="el => letterRefs[index] = el">
         {{ letter }}
@@ -7,7 +7,7 @@
       <span class="final-letter" ref="letterG">GRANATA</span>
       <span class="final-letter" ref="letterM">MATTEO</span>
     </div>
-  </div> -->
+  </div>
 
   <!-- Il contenuto principale della pagina sarà visibile solo quando loading è false -->
   <HeaderPage />
@@ -28,7 +28,7 @@ export default {
     HeaderPage,
     HelloPage,
     PortfolioItem,
-    FooterPage
+    FooterPage,
   },
   data() {
     return {
