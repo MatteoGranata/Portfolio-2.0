@@ -11,7 +11,7 @@
 
   <!-- Il contenuto principale della pagina sarà visibile solo quando loading è false -->
   <HeaderPage />
-  <HelloPage />
+  <AboutPage />
   <PortfolioItem />
   <FooterPage />
 </template>
@@ -19,14 +19,14 @@
 <script>
 import { gsap } from "gsap";
 import HeaderPage from "./HeaderPage.vue";
-import HelloPage from "./HelloPage.vue";
+import AboutPage from "./AboutPage.vue";
 import PortfolioItem from "@/components/PortfolioItem.vue";
 import FooterPage from "./FooterPage.vue";
 
 export default {
   components: {
     HeaderPage,
-    HelloPage,
+    AboutPage,
     PortfolioItem,
     FooterPage,
   },
