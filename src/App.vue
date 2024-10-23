@@ -19,8 +19,6 @@ export default {
   components: {
     NavBarComponent
   },
-  data() {
-  },
   mounted() {
     gsap.registerPlugin(ScrollTrigger);
     let tl = gsap
