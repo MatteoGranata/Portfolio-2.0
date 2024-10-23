@@ -6,7 +6,7 @@
                     class="rounded-2xl px-3 py-1 backdrop-blur-lg bg-neutral-100/30 text-lg drop-shadow-lg">
                     Work
                 </button>
-                <a href="AboutPage" ref="about"
+                <a href="about" ref="about"
                     class="relative -left-[3.8rem] top-0 rounded-2xl px-3 py-1 backdrop-blur-lg bg-neutral-100/30 text-lg text-transparent -z-10 drop-shadow-lg">
                     About
                 </a>
