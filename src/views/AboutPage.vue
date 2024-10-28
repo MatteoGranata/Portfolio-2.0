@@ -1,13 +1,18 @@
 <template>
-    <div class="font-[Roboto] justify-center">
+    <div class="font-[Roboto] justify-center w-full h-full">
 
-        <div ref="textContainer" class="p-5 max-w-[80%] h-full m-auto text-start relative left-44 ">
+        <div ref="textContainer" class="p-0 max-w-[80%] h-full m-auto text-start relative">
             <!-- Cicla attraverso le righe e visualizza ogni riga -->
-            <!-- <h1 class="text-[5rem]"></h1> -->
-            <div v-for="(line, index) in lines" :key="index" class="opacity-0 w-full text-[2.5rem]">
+            <div v-for="(line, index) in lines" :key="index" class="opacity-0 w-full text-[2rem]">
                 {{ line }}
             </div>
         </div>
+        <div class="h-screen">
+
+        </div>
+        <!-- <div class="h-screen w-full flex justify-center">
+            <p class="text-[15rem]">SKILLS</p>
+        </div> -->
     </div>
 </template>
 
@@ -18,7 +23,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 export default {
     data() {
         return {
-            text: "Sono un Full-Stack Developer con una formazione superiore in grafica pubblicitaria e una forte passione per la programmazione. Ho completato un corso come programmatore full-stack presso start2impact, dove ho sviluppato competenze avanzate in tecnologie come JavaScript, Node.js, Express e Vue.js. Durante il mio percorso formativo, ho lavorato su diversi progetti personali, tra cui una web app full-stack chiamata Angel. Questa applicazione permette la gestione di progetti personali e rappresenta un esempio concreto del mio impegno nel creare soluzioni innovative e pratiche. Sono particolarmente interessato a lavorare nel settore tecnologico e software, dove posso contribuire a progetti innovativi e di grande impatto. Amo lavorare con tecnologie all'avanguardia e sono sempre alla ricerca di nuove sfide che mi permettano di crescere e apprendere continuamente. Le mie passioni includono la programmazione e l'innovazione tecnologica. Sono determinato a dimostrare le mie capacità e a costruire una carriera solida e significativa nel campo dello sviluppo web. I miei obiettivi a lungo termine includono il continuo miglioramento delle mie competenze tecniche e l'acquisizione di nuove conoscenze. Credo fortemente nel valore della collaborazione e sono entusiasta di contribuire a team dinamici e a progetti che fanno la differenza.",
+            text: "Sono un Full-Stack Developer italiano di Sesto San Giovanni, provincia di Milano, con una formazione in grafica pubblicitaria e una forte passione per la programmazione. Ho completato un corso di programmazione full-stack presso start2impact, sviluppando competenze in JavaScript, Node.js, Express e Vue.js. Sono motivato a contribuire al settore tecnologico con soluzioni innovative, utilizzando tecnologie avanzate e affrontando nuove sfide per crescere professionalmente. Il mio obiettivo è migliorare continuamente le mie competenze tecniche e collaborare a progetti di grande impatto.",
             lines: [], // Array che conterrà le righe di testo
             maxLineWidth: 0, // Larghezza massima delle righe, impostata dinamicamente
             context: null // Contesto canvas per calcolare larghezza testo
@@ -32,8 +37,53 @@ export default {
         this.$nextTick(() => {
             this.applyAnimations(); // Applica animazioni GSAP alle righe
         });
-
         window.addEventListener("resize", this.handleResize);
+
+        const M = gsap.utils.toArray('.m');
+        const G = gsap.utils.toArray('.g');
+
+        const tl = gsap
+            .timeline({ repeat: -1, yoyo: false })
+
+        tl.to([M, G], {
+            rotation: 180,
+            y: (i) => (i === 0 ? -140 : 140),
+            duration: 1.5,
+            ease: "elastic.inOut"
+        })
+
+        tl.to([M, G], {
+            x: (i) => (i === 0 ? 330 : -330),
+            duration: 1,
+            ease: "elastic.inOut"
+        })
+
+        tl.to([M, G], {
+            rotation: 360,
+            y: 'start',
+            duration: 1.5,
+            ease: "elastic.inOut"
+        })
+
+        tl.to([M, G], {
+            rotation: 180,
+            y: (i) => (i === 0 ? 140 : -140),
+            duration: 1.5,
+            ease: "elastic.inOut"
+        })
+
+        tl.to([M, G], {
+            x: "start",
+            duration: 1,
+            ease: "elastic.inOut"
+        })
+
+        tl.to([M, G], {
+            rotation: 360,
+            y: "start",
+            duration: 1.5,
+            ease: "elastic.inOut"
+        })
     },
     beforeUnmount() {
         window.removeEventListener("resize", this.handleResize);

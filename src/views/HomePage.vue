@@ -1,5 +1,5 @@
 <template>
-  <div ref="container" class="preloader-container bg-[#DD5E3F]">
+  <!-- <div ref="container" class="preloader-container bg-[#DD5E3F]">
     <div class="name-container font-[Roboto]  text-[#EADAAD]">
       <span v-for="(letter, index) in letters" :key="index" class="letter" :ref="el => letterRefs[index] = el">
         {{ letter }}
@@ -7,11 +7,10 @@
       <span class="final-letter" ref="letterG">GRANATA</span>
       <span class="final-letter" ref="letterM">MATTEO</span>
     </div>
-  </div>
+  </div> -->
 
   <!-- Il contenuto principale della pagina sarà visibile solo quando loading è false -->
   <HeaderPage />
-  <AboutPage />
   <PortfolioItem />
   <FooterPage />
 </template>
@@ -19,14 +18,12 @@
 <script>
 import { gsap } from "gsap";
 import HeaderPage from "./HeaderPage.vue";
-import AboutPage from "./AboutPage.vue";
 import PortfolioItem from "@/components/PortfolioItem.vue";
 import FooterPage from "./FooterPage.vue";
 
 export default {
   components: {
     HeaderPage,
-    AboutPage,
     PortfolioItem,
     FooterPage,
   },
