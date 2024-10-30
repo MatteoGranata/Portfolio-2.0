@@ -1,13 +1,14 @@
 <template>
-  <!-- <div ref="container" class="preloader-container bg-[#DD5E3F]">
-    <div class="name-container font-[Roboto]  text-[#EADAAD]">
-      <span v-for="(letter, index) in letters" :key="index" class="letter" :ref="el => letterRefs[index] = el">
+  <div ref="container" class="fixed top-0 left-0 w-full h-screen flex justify-center items-center z-50 bg-[#DD5E3F]">
+    <div class="flex justify-center items-center text-[2rem] sm:text-[3rem] font-[Roboto] text-[#EADAAD]">
+      <span v-for="(letter, index) in letters" :key="index" class="absolute inline-block"
+        :ref="el => letterRefs[index] = el">
         {{ letter }}
       </span>
-      <span class="final-letter" ref="letterG">GRANATA</span>
-      <span class="final-letter" ref="letterM">MATTEO</span>
+      <p class="final-letter absolute text-[10rem] opacity-0" ref="letterG">GRANATA</p>
+      <p class="final-letter absolute text-[10rem] opacity-0" ref="letterM">MATTEO</p>
     </div>
-  </div> -->
+  </div>
 
   <!-- Il contenuto principale della pagina sarà visibile solo quando loading è false -->
   <HeaderPage />
@@ -36,26 +37,38 @@ export default {
   },
   mounted() {
     this.animateLetters();
+    this.getResponsiveValues();
   },
   methods: {
+    getResponsiveValues() {
+      if (window.innerWidth < 640) {
+        return { xPosition: 180, yPosition: 280 }; // Mobile
+      } else if (window.innerWidth < 1024) {
+        return { xPosition: 200, yPosition: 120 }; // Tablet
+      } else {
+        return { xPosition: 600, yPosition: 300 }; // Desktop
+      }
+    },
     getRandomPosition(min, max) {
-      return Math.random() * (max - min) + min; // Restituisce un valore casuale tra min e max
+      return Math.random() * (max - min) + min; // Restituisce valore casuale tra min e max
     },
     animateLetters() {
+      const { xPosition, yPosition } = this.getResponsiveValues();
       const tl = gsap.timeline({
-        repeat: false, // Ripete l'animazione una volta
+        repeat: false, // Animazione non ripetuta
         yoyo: false,
         repeatDelay: false,
-        onComplete: this.hidePreloader, // Nasconde il preloader al termine dell'animazione
+        onComplete: this.hidePreloader, // Nasconde il preloader al termine
       });
 
       // Prima fase: le lettere si muovono verso il centro
       this.letterRefs.forEach((letter, index) => {
+
         tl.fromTo(
           letter,
           {
-            x: this.getRandomPosition(-600, 600),
-            y: this.getRandomPosition(-300, 300),
+            x: this.getRandomPosition(-xPosition, xPosition),
+            y: this.getRandomPosition(-yPosition, yPosition),
             opacity: 1, // Visibili all'inizio
           },
           {
@@ -117,41 +130,7 @@ export default {
 </script>
 
 <style scoped>
-.preloader-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  /* Assicurati che copra tutto */
-}
-
-.name-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.letter {
-  position: absolute;
-  display: inline-block;
-}
-
 .final-letter {
-  position: absolute;
-  font-size: 10rem;
-  opacity: 0;
   transform: scale(0);
-  font-weight: bold;
-}
-
-.page-content {
-  visibility: visible;
 }
 </style>
