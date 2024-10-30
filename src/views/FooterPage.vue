@@ -1,10 +1,10 @@
 <template>
-    <div class="w-full min-h-screen h-full mt-0 pt-20 font-[Roboto]">
+    <div class="w-full min-h-screen h-full mt-0 pt-20 font-[Roboto] about-section">
         <div class="grid grid-cols-2 p-3">
             <div class="w-full">
                 <div class="border-t w-11/12">
                     <h1 class="text-[2.5rem] mb-10">Skills</h1>
-                    <div class="grid grid-cols-2 gap-5 text-[1.5rem]">
+                    <div class="grid grid-cols-2 gap-5 text-[1.2rem]">
                         <p class="border h-fit w-fit rounded-xl py-1 px-3">HTML</p>
                         <p class="border h-fit w-fit rounded-xl py-1 px-3">CSS</p>
                         <p class="border h-fit w-fit rounded-xl py-1 px-3">JavaScript</p>

@@ -6,10 +6,10 @@
                     class="rounded-2xl px-3 py-1 backdrop-blur-lg bg-neutral-100/30 text-lg drop-shadow-lg">
                     Work
                 </button>
-                <a href="about" ref="about"
+                <button @click="scrollToAbout" ref="about"
                     class="relative -left-[3.8rem] top-0 rounded-2xl px-3 py-1 backdrop-blur-lg bg-neutral-100/30 text-lg text-transparent -z-10 drop-shadow-lg">
                     About
-                </a>
+                </button>
             </div>
             <p class="uppercase rounded-2xl px-3 py-1 backdrop-blur-lg bg-neutral-100/30 text-lg drop-shadow-lg">
                 {{ time }}
@@ -32,6 +32,16 @@ export default {
             const workSection = document.querySelector('.work-section');
             if (workSection) {
                 workSection.scrollIntoView({ behavior: 'smooth' });
+                // Aggiorna l'URL senza hash
+                history.pushState(null, '', window.location.pathname); // Mantieni solo il pathname
+            } else {
+                this.$router.push({ path: "/" })
+            }
+        },
+        scrollToAbout() {
+            const aboutkSection = document.querySelector('.about-section');
+            if (aboutkSection) {
+                aboutkSection.scrollIntoView({ behavior: 'smooth' });
                 // Aggiorna l'URL senza hash
                 history.pushState(null, '', window.location.pathname); // Mantieni solo il pathname
             } else {
