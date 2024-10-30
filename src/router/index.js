@@ -1,4 +1,3 @@
-const AboutPage = () => import('../views/AboutPage.vue')
 import { createRouter, createWebHistory } from 'vue-router'
 
 const HomePage = () => import('../views/HomePage.vue')
@@ -17,11 +16,6 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomePage
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: AboutPage
   },
   {
     path: '/primo-portfolio',
