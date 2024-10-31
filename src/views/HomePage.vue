@@ -5,11 +5,12 @@
         :ref="el => letterRefs[index] = el">
         {{ letter }}
       </span>
-      <p class="final-letter absolute text-[10rem] opacity-0" ref="letterG">GRANATA</p>
-      <p class="final-letter absolute text-[10rem] opacity-0" ref="letterM">MATTEO</p>
+      <div class="absolute left-0 w-full h-fit flex flex-col justify-center content-center items-center">
+        <p class="final-letter text-[5rem] sm:text-[7rem] md:text-[10rem] opacity-0" ref="letterG">GRANATA</p>
+        <p class="final-letter text-[5rem] sm:text-[7rem] md:text-[10rem] opacity-0" ref="letterM">MATTEO</p>
+      </div>
     </div>
   </div>
-
   <!-- Il contenuto principale della pagina sarà visibile solo quando loading è false -->
   <HeaderPage />
   <PortfolioItem />
@@ -43,8 +44,10 @@ export default {
     getResponsiveValues() {
       if (window.innerWidth < 640) {
         return { xPosition: 180, yPosition: 280 }; // Mobile
+      } else if (window.innerWidth < 768) {
+        return { xPosition: 200, yPosition: 120 };
       } else if (window.innerWidth < 1024) {
-        return { xPosition: 200, yPosition: 120 }; // Tablet
+        return { xPosition: 320, yPosition: 480 }; // Tablet
       } else {
         return { xPosition: 600, yPosition: 300 }; // Desktop
       }
@@ -89,8 +92,7 @@ export default {
         this.$refs.letterG,
         {
           opacity: 1,
-          x: -160, // Mostra "G"
-          scale: 0.5, // Scala "G"
+          scale: 1, // Scala "G"
           duration: 1, // Durata dell'animazione
           ease: "power2.inOut", // Easing fluido
         },
@@ -101,8 +103,7 @@ export default {
         this.$refs.letterM,
         {
           opacity: 1, // Mostra "M"
-          x: 160, // Mostra "M"
-          scale: 0.5, // Scala "M"
+          scale: 1, // Scala "M"
           duration: 1, // Durata dell'animazione
           ease: "power2.inOut", // Easing fluido
         },
@@ -110,7 +111,7 @@ export default {
       );
       // Fase finale: nascondi il contenitore del preloader
       tl.to(this.$refs.container, {
-        y: 1000,
+        y: "100%",
         duration: 1,
         ease: "expo.in",
       });

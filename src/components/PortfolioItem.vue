@@ -2,13 +2,13 @@
     <div ref="container" class="work-section font-[Roboto] w-fit h-fit flex flex-col justify-center">
         <div ref="loader" class="w-full h-screen z-50 bg-white fixed left-0 top-full"></div>
         <div class="sticky top-1/4 left-1/4 w-full h-full flex items-center justify-center font-[Raleway]">
-            <p ref="text" class="text-[6rem] sm:text-[20rem] text-center w-fit h-fit">
+            <p ref="text" class="text-[6rem] sm:text-[11rem] md:text-[12rem] lg:text-[20rem] text-center w-fit h-fit">
                 WORKS
             </p>
         </div>
-        <div class="grid grid-cols-1 gap-10 sm:gap-0 sm:grid-cols-2 h-fit drop-shadow-md">
+        <div class="grid grid-cols-1 gap-10 sm:gap-60 lg:gap-0 lg:grid-cols-2 h-fit drop-shadow-md">
             <div v-for="(image, index) in images" :key="index"
-                :class="['section', sectionClasses[index], 'h-max sm:h-screen w-full flex flex-col relative px-10 object-contain', 'perspective']">
+                :class="['section', sectionClasses[index], 'h-max lg:h-screen w-full flex flex-col relative px-10 object-contain', 'perspective']">
                 <div ref="videos" class="w-screen sm:w-fit h-fit p-4">
                     <video :src="image" :alt="titles[index]" class="image w-full h-full rounded-lg"
                         @mousemove="handleMouseMove($event, index)" @mouseleave="handleMouseLeave(index)"
@@ -143,8 +143,6 @@ export default {
                     });
                 }
             });
-
-
         },
         handleMouseMove(event, index) {
             const video = this.$refs.videos[index]; // Ottieni il video corrispondente

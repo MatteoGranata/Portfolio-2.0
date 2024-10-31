@@ -1,27 +1,27 @@
 <template>
-  <div class="font-[Roboto] font-bold flex flex-col justify-center w-full h-screen m-0">
+  <div class="font-[Roboto] font-bold flex flex-col justify-center w-full h-screen sm:h-full md:h-screen m-0">
     <div class="flex items-center justify-center w-full h-fit">
-      <h1 class="text-[4rem] text-center sm:text-[8rem] leading-tight">
+      <h1 class="text-[4rem] text-center sm:text-[3.3rem] md:text-[8rem] leading-tight">
         FULL STACK DEVELOPER
       </h1>
     </div>
     <div class="flex items-top justify-center h-fit w-full">
       <div class="flex flex-col items-center">
-        <div class="flex flex-row text-[10rem] sm:text-[25rem] font-[Raleway]">
-          <p class="w-fit h-fit bg-transparent text-end leading-[7.rem] m">
+        <div class="flex flex-row text-[10rem] sm:text-[8rem] md:text-[20rem] lg:text-[25rem] font-[Raleway]">
+          <p class="w-fit h-fit bg-transparent text-end m">
             M
           </p>
-          <p class="w-fit h-fit bg-transparent text-end leading-[7.rem] g">
+          <p class="w-fit h-fit bg-transparent text-end g">
             G
           </p>
         </div>
         <div class="flex flex-row w-fit uppercase">
           <p id="nome"
-            class="bg-transparent w-fit h-fit mb-5 mr-[3vw] text-[2.6rem] sm:text-[4rem] text-end leading-[7.rem] name">
+            class="bg-transparent w-fit h-fit mb-5 mr-[3vw] text-[2.6rem] sm:text-[3.2rem] md:text-[4rem] text-end leading-[7.rem] name">
             Matteo
           </p>
           <p id="cognome"
-            class="w-fit bg-transparent h-fit mb-5 text-[2.6rem] sm:text-[4rem] text-end leading-[7.rem] surname">
+            class="w-fit bg-transparent h-fit mb-5 text-[2.6rem] sm:text-[3.2rem] md:text-[4rem] text-end leading-[7.rem] surname">
             Granata
           </p>
         </div>
@@ -56,14 +56,24 @@ export default {
             nameX: 180,
             surnameX: -160
           };
+        }
+        else if (window.innerWidth < 768) {
+          return {
+            xMove: 100,
+            yMove: 50,
+            rotation: 180,
+            yPos: -30,
+            nameX: 230,
+            surnameX: -200
+          };
         } else if (window.innerWidth < 1024) { // Tablet
           return {
-            xMove: 200,
+            xMove: 280,
             yMove: 120,
-            rotation: 135,
+            rotation: 180,
             yPos: -120,
-            nameX: 150,
-            surnameX: -150
+            nameX: 310,
+            surnameX: -280
           };
         } else { // Desktop
           return {
