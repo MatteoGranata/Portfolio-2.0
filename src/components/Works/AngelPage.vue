@@ -1,32 +1,5 @@
 <template>
-    <div class="w-full h-full font-[Roboto]">
-        <div ref="container" class="overflow-hidden w-full h-screen">
-            <div ref="loader"
-                class="w-full z-50 h-full flex justify-center items-center absolute text-[#1E293B] bg-[#F8F8FF] top-0 left-0 opacity-100">
-                <h1 ref="text" class="text-[10rem] text-center">Angel</h1>
-            </div>
-            <div class="w-full h-screen relative left-0 -top-10 z-0 flex justify-center">
-                <video ref="video" :src="video" class="image w-full h-full object-cover" autoplay muted loop>
-                </video>
-            </div>
-            <div class="w-full h-fit px-10 mb-10">
-                <div class="w-full h-fit grid grid-cols-2 mb-10">
-                    <div class="flex justify-start gap-2">
-                        <p class="border h-fit w-fit rounded-xl py-1 px-3">Vue Router</p>
-                        <p class="border h-fit w-fit rounded-xl py-1 px-3">Node</p>
-                        <p class="h-fit w-fit py-1 px-0">|</p>
-                        <p class="border h-fit w-fit rounded-xl py-1 px-3">TailwindCSS</p>
-                        <p class="border h-fit w-fit rounded-xl py-1 px-3">MongoDB Atlas</p>
-                    </div>
-                    <div class="flex justify-end">
-                        <p class="border h-fit w-fit rounded-xl py-1 px-3">start2impact project</p>
-                    </div>
-                </div>
-                <div class="w-full h-full grid grid-cols-2">
-                    <p class="text-[3rem]">Angel</p>
-                    <div>
-                        <p class="text-[1.5rem]">
-                            Angel è una web app progettata per semplificare la gestione del tempo e delle attività
+    <TemplateWorks title="Angel" :videoSrc="video" :details="details" description="Angel è una web app progettata per semplificare la gestione del tempo e delle attività
                             quotidiane. L'idea nasce dall'osservazione delle difficoltà che molte persone incontrano nel
                             mantenere tutto organizzato e produttivo. La soluzione proposta è una piattaforma che
                             riunisce diverse funzionalità in un unico strumento, tra cui la gestione delle note
@@ -57,46 +30,43 @@
                             Angel è stato deployato su Netlify per il front-end, mentre il back-end è ospitato su
                             Render. La scelta di MongoDB Atlas come database permette una gestione scalabile e
                             flessibile dei dati. Questo approccio tecnico garantisce una solida architettura per un'app
-                            che vuole essere tanto potente quanto semplice da usare.
-                        </p>
-                    </div>
-                </div>
+                            che vuole essere tanto potente quanto semplice da usare.">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-60 py-10 px-5 lg:px-10 justify-center">
+            <!-- Immagine grande che occupa tutte e 4 le colonne -->
+            <div
+                class="w-full rounded-2xl flex items-center h-[20rem] lg:h-[50rem] overflow-hidden col-span-2 place-self-center">
+                <img :src="mockup" class="object-cover w-full h-[30rem] lg:h-max">
             </div>
-            <div class="grid grid-cols-2 auto-rows-auto gap-60 py-10 px-10 justify-center">
-                <!-- Immagine grande che occupa tutte e 4 le colonne -->
-                <div
-                    class="w-full rounded-2xl flex items-center h-[50rem] overflow-hidden col-span-2 place-self-center">
-                    <img :src="mockup" class="object-contain w-full relative top-20 h-max">
-                </div>
-                <div class="h-fit w-full">
-                    <img :src="Screen" class="rounded-xl object-cover w-full">
-                </div>
-                <div class="h-fit w-full">
-                    <img :src="howtouseScreen" class="rounded-xl object-cover w-full">
-                </div>
-                <div class="h-fit w-full col-span-2">
-                    <img :src="loginScreen" class="rounded-xl object-cover w-full">
-                </div>
-                <div class="h-fit w-full">
-                    <img :src="projectsScreen" class="rounded-xl object-cover w-full">
-                </div>
-                <div class="h-fit w-full">
-                    <img :src="notesScreen" class="rounded-xl object-cover w-full">
-                </div>
-                <div class="h-fit w-full col-span-2">
-                    <img :src="timerScreen" class="rounded-xl object-cover w-full">
-                </div>
-                <div class="h-fit w-full">
-                    <img :src="passwordScreen" class="rounded-xl object-cover w-full">
-                </div>
-                <div class="h-fit w-full">
-                    <img :src="financeScreen" class="rounded-xl object-cover w-full">
-                </div>
+            <div class="h-fit w-full">
+                <img :src="Screen" class="rounded-xl object-cover w-full">
+            </div>
+            <div class="h-fit w-full">
+                <img :src="howtouseScreen" class="rounded-xl object-cover w-full">
+            </div>
+            <div class="h-fit w-full col-span-2">
+                <img :src="loginScreen" class="rounded-xl object-cover w-full">
+            </div>
+            <div class="h-fit w-full">
+                <img :src="projectsScreen" class="rounded-xl object-cover w-full">
+            </div>
+            <div class="h-fit w-full">
+                <img :src="notesScreen" class="rounded-xl object-cover w-full">
+            </div>
+            <div class="h-fit w-full col-span-2">
+                <img :src="timerScreen" class="rounded-xl object-cover w-full">
+            </div>
+            <div class="h-fit w-full">
+                <img :src="passwordScreen" class="rounded-xl object-cover w-full">
+            </div>
+            <div class="h-fit w-full">
+                <img :src="financeScreen" class="rounded-xl object-cover w-full">
             </div>
         </div>
-    </div>
+    </TemplateWorks>
 </template>
 <script>
+import TemplateWorks from "./TemplateWorks.vue";
 import AngelVideo from "@/assets/video/Registrazione_Angel.mp4";
 import AngelMokup from "@/assets/img/Mockups/Mockup_Angel.png";
 import AngelScreen from "@/assets/img/screen/Angel/Screen_angel.png";
@@ -107,10 +77,9 @@ import AngelNotesScreen from "@/assets/img/screen/Angel/Screen_angel-notes.png";
 import AngelTimerScreen from "@/assets/img/screen/Angel/Screen_angel-timer.png";
 import AngelPasswordsScreen from "@/assets/img/screen/Angel/Screen_angel-passwords.png";
 import AngelFinanceScreen from "@/assets/img/screen/Angel/Screen_angel-finance.png";
-import { WorkMixin } from "@/mixins/WorkMixin"
 
 export default {
-    mixins: [WorkMixin],
+    components: { TemplateWorks },
     data() {
         return {
             video: AngelVideo,
@@ -123,11 +92,14 @@ export default {
             timerScreen: AngelTimerScreen,
             passwordScreen: AngelPasswordsScreen,
             financeScreen: AngelFinanceScreen,
+            details: [
+                { label: 'Code', value: 'Vue Router, Node' },
+                { label: 'Framework', value: 'TailwindCSS' },
+                { label: 'DataBase', value: 'MongoDB Atlas' },
+                { label: 'For', value: 'Start2impact' }
+            ],
         };
     },
-    mounted() {
-        this.viewAnimation();
-    },
-
 }
+
 </script>

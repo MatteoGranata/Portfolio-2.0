@@ -140,6 +140,8 @@ export default {
                     this.$router.push({ path: this.path[index] }).then(() => {
                         // Ricarica la pagina solo dopo che la navigazione è stata completata
                         window.location.reload();
+                        localStorage.setItem('textColor', this.colors[index])
+                        localStorage.setItem('color', this.textColors[index])
                     });
                 }
             });

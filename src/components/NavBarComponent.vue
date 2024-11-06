@@ -1,5 +1,5 @@
 <template>
-    <nav class="fixed w-full h-fit font-[Roboto] z-10 ">
+    <nav class="fixed w-full h-fit font-[Roboto] z-10" :style="{ color: textColor }">
         <div class="flex justify-between w-full p-4">
             <div @mouseover="onMouseOver" @mouseleave="onMouseleave" class="flex z-50">
                 <button @click="scrollToWork"
@@ -25,10 +25,12 @@ export default {
     data() {
         return {
             time: this.getCurrentTime(),
+            textColor: ""
         };
     },
     methods: {
         scrollToWork() {
+
             const workSection = document.querySelector('.work-section');
             if (workSection) {
                 workSection.scrollIntoView({ behavior: 'smooth' });
@@ -36,16 +38,21 @@ export default {
                 history.pushState(null, '', window.location.pathname); // Mantieni solo il pathname
             } else {
                 this.$router.push({ path: "/" })
+                this.textColor = ''
+
             }
         },
         scrollToAbout() {
+
             const aboutkSection = document.querySelector('.about-section');
             if (aboutkSection) {
                 aboutkSection.scrollIntoView({ behavior: 'smooth' });
                 // Aggiorna l'URL senza hash
-                history.pushState(null, '', window.location.pathname); // Mantieni solo il pathname
+                history.pushState(null, '', window.location.pathname);
+                // Mantieni solo il pathname
             } else {
                 this.$router.push({ path: "/" })
+                this.textColor = ''
             }
         },
         onMouseOver() {
@@ -86,6 +93,7 @@ export default {
     },
     mounted() {
         this.interval = setInterval(this.updateTime, 1000);
+        this.textColor = localStorage.getItem('textColor')
     },
     beforeUnmount() {
         clearInterval(this.interval);
