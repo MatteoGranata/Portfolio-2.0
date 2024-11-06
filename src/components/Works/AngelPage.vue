@@ -36,7 +36,7 @@
             <!-- Immagine grande che occupa tutte e 4 le colonne -->
             <div
                 class="w-full rounded-2xl flex items-center h-[20rem] lg:h-[50rem] overflow-hidden col-span-2 place-self-center">
-                <img :src="mockup" class="object-cover w-full h-[30rem] lg:h-max">
+                <img :src="mockup" class="object-cover w-full h-[24rem] lg:h-max">
             </div>
             <div class="h-fit w-full">
                 <img :src="Screen" class="rounded-xl object-cover w-full">
