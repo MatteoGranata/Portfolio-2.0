@@ -16,19 +16,13 @@
                 <img :src="mockup" class="object-cover w-full h-[30rem] lg:h-full">
             </div>
             <div class="h-fit w-full">
-                <img :src="portfolioScreen" class="rounded-xl object-cover w-full">
+                <img :src="readbooksScreen" class="rounded-xl object-cover w-full">
             </div>
             <div class="h-fit w-full">
-                <img :src="menuScreen" class="rounded-xl object-cover w-full">
+                <img :src="risultatiScreen" class="rounded-xl object-cover w-full">
             </div>
             <div class="h-fit w-full col-span-2">
-                <img :src="chiSonoScreen" class="rounded-xl object-cover w-full">
-            </div>
-            <div class="h-fit w-full">
-                <img :src="lavoriScreen" class="rounded-xl object-cover w-full">
-            </div>
-            <div class="h-fit w-full">
-                <img :src="contattiScreen" class="rounded-xl object-cover w-full">
+                <img :src="descrizioneScreen" class="rounded-xl object-cover w-full">
             </div>
         </div>
     </TemplateWorks>
@@ -37,24 +31,20 @@
 import TemplateWorks from "./TemplateWorks.vue";
 import ReadBooksVideo from "@/assets/video/Registrazione_ReadBooks.mp4";
 
-import PrimoPortfolioMokup from "@/assets/img/Mockups/Mockup_Primo-Portfolio.png";
-import PrimoPortfolioMenuScreen from "@/assets/img/screen/Primo_portfolio/Screen_menu-primo-portfolio.png";
-import PrimoPortfolioLavoriScreen from "@/assets/img/screen/Primo_portfolio/Screen_lavori-primo-porfolio.png";
-import PrimoPortfolioChiSonoScreen from "@/assets/img/screen/Primo_portfolio/Screen_chisono-primo-porfolio.png";
-import PrimoPortfolioContattiScreen from "@/assets/img/screen/Primo_portfolio/Screen_contatti-primo-portfolio.png";
-import PrimoPortfolioScreen from "@/assets/img/screen/Primo_portfolio/Screen_Primo_Portfolio.png";
+import ReadBooksMockup from "@/assets/img/Mockups/Mockup_ReadBooks.png";
+import ReadBooksRisultati from "@/assets/img/screen/ReadBooks/Screen_risultati.png";
+import ReadBooksDescrizione from "@/assets/img/screen/ReadBooks/Screen_descrizione.png";
+import ReadbooksScreen from "@/assets/img/screen/ReadBooks/Screen_ReadBooks.png";
 
 export default {
     components: { TemplateWorks },
     data() {
         return {
             video: ReadBooksVideo,
-            mockup: PrimoPortfolioMokup,
-            menuScreen: PrimoPortfolioMenuScreen,
-            lavoriScreen: PrimoPortfolioLavoriScreen,
-            chiSonoScreen: PrimoPortfolioChiSonoScreen,
-            portfolioScreen: PrimoPortfolioScreen,
-            contattiScreen: PrimoPortfolioContattiScreen,
+            mockup: ReadBooksMockup,
+            risultatiScreen: ReadBooksRisultati,
+            descrizioneScreen: ReadBooksDescrizione,
+            readbooksScreen: ReadbooksScreen,
             details: [
                 { label: 'Code', value: 'HTML, CSS, JavaScript' },
                 { label: 'Framework', value: 'WebPack, axios' },
