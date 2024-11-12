@@ -5,10 +5,8 @@ const PrimoPortfolio = () => import('../components/Works/PrimoPorfolioPage.vue')
 const PortfolioRagusa = () => import('../components/Works/PortfolioRagusaPage.vue')
 const Counter = () => import('../components/Works/CounterPage.vue')
 const ReadBooks = () => import('../components/Works/ReadBooksPage.vue')
-const Moove = () => import('../components/Works/MoovePage.vue')
 const TicTacToe = () => import('../components/Works/TicTacToePage.vue')
 const Sunnee = () => import('../components/Works/SunneePage.vue')
-const Orizon = () => import('../components/Works/OrizonPage.vue')
 const Angel = () => import('../components/Works/AngelPage.vue')
 
 const routes = [
@@ -38,11 +36,6 @@ const routes = [
     component: ReadBooks
   },
   {
-    path: '/moove',
-    name: 'moove',
-    component: Moove
-  },
-  {
     path: '/tic-tac-toe',
     name: 'tictactoe',
     component: TicTacToe
@@ -51,11 +44,6 @@ const routes = [
     path: '/sunnee',
     name: 'sunnee',
     component: Sunnee
-  },
-  {
-    path: '/orizon',
-    name: 'orizon',
-    component: Orizon
   },
   {
     path: '/angel',
