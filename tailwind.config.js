@@ -15,6 +15,10 @@ export default {
       },
       rotateY: {
         17: '17deg'
+      },
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'], // Aggiungi il font personalizzato
+        Raleway: ['Raleway', 'sans-serif'] // Aggiungi il font personalizzato
       }
     }
   },
