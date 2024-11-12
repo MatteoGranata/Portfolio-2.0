@@ -9,38 +9,36 @@ import { RouterView } from 'vue-router'
   </div>
 </template>
 
-
 <script>
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import NavBarComponent from './components/NavBarComponent.vue';
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import NavBarComponent from './components/NavBarComponent.vue'
 
 export default {
   components: {
     NavBarComponent
   },
   mounted() {
-    gsap.registerPlugin(ScrollTrigger);
-    let tl = gsap
-      .timeline({ yoyo: true })
+    gsap.registerPlugin(ScrollTrigger)
+    let tl = gsap.timeline({ yoyo: true })
 
-    const Container = gsap.utils.toArray('.container-effect');
+    const Container = gsap.utils.toArray('.container-effect')
 
-    tl.fromTo(Container, { backgroundColor: "#DD5E3F", color: "#EADAAD" },
+    tl.fromTo(
+      Container,
+      { backgroundColor: '#DD5E3F', color: '#EADAAD' },
       {
-        backgroundColor: "#EADAAD",
-        color: "#DD5E3F",
+        backgroundColor: '#EADAAD',
+        color: '#DD5E3F',
         scrollTrigger: {
           trigger: Container,
-          start: "center top",
-          end: "center bottom",
+          start: 'center top',
+          end: 'center bottom',
           scrub: 2,
           markers: false
         }
-      })
-
-  },
-
-
-};
+      }
+    )
+  }
+}
 </script>
