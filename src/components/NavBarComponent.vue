@@ -72,6 +72,7 @@ export default {
       } else {
         this.$router.push({ path: '/' })
         this.textColor = ''
+        localStorage.clear()
       }
     },
     scrollToAbout() {
@@ -82,6 +83,7 @@ export default {
       } else {
         this.$router.push({ path: '/' })
         this.textColor = ''
+        localStorage.clear()
       }
     },
     onMouseOver() {
