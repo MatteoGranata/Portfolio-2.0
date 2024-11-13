@@ -1,22 +1,11 @@
 <template>
-  <div
-    ref="container"
-    class="fixed top-0 left-0 w-full h-screen flex justify-center items-center z-50 bg-[#DD5E3F]"
-  >
-    <div
-      class="flex justify-center items-center text-[2rem] sm:text-[3rem] font-[Roboto] text-[#EADAAD]"
-    >
-      <span
-        v-for="(letter, index) in letters"
-        :key="index"
-        class="absolute inline-block"
-        :ref="(el) => (letterRefs[index] = el)"
-      >
+  <div ref="container" class="fixed top-0 left-0 w-full h-screen flex justify-center items-center z-50 bg-[#DD5E3F]">
+    <div class="flex justify-center items-center text-[2rem] sm:text-[3rem] font-[Roboto] text-[#EADAAD]">
+      <span v-for="(letter, index) in letters" :key="index" class="absolute inline-block"
+        :ref="(el) => (letterRefs[index] = el)">
         {{ letter }}
       </span>
-      <div
-        class="absolute left-0 w-full h-fit flex flex-col justify-center content-center items-center"
-      >
+      <div class="absolute left-0 w-full h-fit flex flex-col justify-center content-center items-center">
         <p class="final-letter text-[5rem] sm:text-[7rem] md:text-[10rem] opacity-0" ref="letterG">
           GRANATA
         </p>
@@ -27,22 +16,16 @@
     </div>
   </div>
   <!-- Il contenuto principale della pagina sarà visibile solo quando loading è false -->
-  <HeaderPage />
   <PortfolioItem />
-  <FooterPage />
 </template>
 
 <script>
 import { gsap } from 'gsap'
-import HeaderPage from './HeaderPage.vue'
 import PortfolioItem from '@/components/PortfolioItem.vue'
-import FooterPage from './FooterPage.vue'
 
 export default {
   components: {
-    HeaderPage,
     PortfolioItem,
-    FooterPage
   },
   data() {
     return {

@@ -1,35 +1,44 @@
 <template>
   <div ref="container" class="work-section font-[Roboto] w-fit h-fit flex flex-col justify-center">
-    <div ref="loader" class="w-full h-screen z-50 bg-white fixed left-0 top-full"></div>
-    <div class="sticky top-1/4 left-1/4 w-full h-full flex items-center justify-center font-[Raleway]">
-      <p ref="text" class="text-[6rem] sm:text-[11rem] md:text-[12rem] lg:text-[20rem] text-center w-fit h-fit">
-        WORKS
-      </p>
-    </div>
-    <div class="grid grid-cols-1 gap-10 sm:gap-60 lg:gap-0 lg:grid-cols-2 h-fit drop-shadow-md">
-      <div v-for="(image, index) in images" :key="index" :class="[
-        'section',
-        sectionClasses[index],
-        'h-max lg:h-screen w-full flex flex-col relative px-10 object-contain',
-        'perspective'
-      ]">
-        <div ref="videos" class="w-screen sm:w-fit h-fit p-4">
-          <video :src="image" :alt="titles[index]" class="image w-full h-full rounded-lg"
-            @mousemove="handleMouseMove($event, index)" @mouseleave="handleMouseLeave(index)"
-            @click="handleVideoClick(index)" autoplay muted loop></video>
-          <div class="sm:text-2xl flex justify-between w-full h-fit">
-            <p class="">{{ titles[index] }}</p>
-            <p class="">{{ others[index] }}</p>
+    <div class="w-full h-full">
+      <HeaderPage />
+      <div ref="loader" class="w-full h-screen z-50 bg-white fixed left-0 top-full"></div>
+      <div class="sticky top-1/4 left-1/4 w-full h-full flex items-center justify-center font-[Raleway]">
+        <p ref="text" class="text-[6rem] sm:text-[11rem] md:text-[12rem] lg:text-[20rem] text-center w-fit h-fit">
+          WORKS
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-10 sm:gap-60 lg:gap-0 lg:grid-cols-2 h-fit drop-shadow-md">
+        <div v-for="(image, index) in images" :key="index" :class="[
+          'section',
+          sectionClasses[index],
+          'h-max lg:h-screen w-full flex flex-col relative px-10 object-contain',
+          'perspective'
+        ]">
+          <div ref="videos" class="w-screen sm:w-fit h-fit p-4">
+            <video :src="image" :alt="titles[index]" class="image w-full h-full rounded-lg"
+              @mousemove="handleMouseMove($event, index)" @mouseleave="handleMouseLeave(index)"
+              @click="handleVideoClick(index)" autoplay muted loop></video>
+            <div class="sm:text-2xl flex justify-between w-full h-fit">
+              <p class="">{{ titles[index] }}</p>
+              <p class="">{{ others[index] }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <FooterPage />
   </div>
+
+
 </template>
 
 <script>
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+
+import HeaderPage from '@/views/HeaderPage.vue'
+import FooterPage from '@/views/FooterPage.vue'
 
 import PrimoPortfolioVideo from '../assets/video/Registrazione_Primo-Portfolio.mp4'
 import PortfolioRagusaVideo from '../assets/video/Registrazione_Portfolio-Ragusa.mp4'
@@ -42,6 +51,10 @@ import AngelVideo from '../assets/video/Registrazione_Angel.mp4'
 gsap.registerPlugin(ScrollTrigger)
 
 export default {
+  components: {
+    HeaderPage,
+    FooterPage
+  },
   name: 'ImageScroll',
   data() {
     return {
