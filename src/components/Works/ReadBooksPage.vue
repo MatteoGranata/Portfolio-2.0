@@ -1,11 +1,11 @@
 <template>
-  <TemplateWorks title="ReadBooks" :videoSrc="video" :details="details" description=" L'applicazione permette agli utenti di cercare libri per categoria, visualizzando i
+  <TemplateWorks title="ReadBooks" :videoSrc="video" :details="details" description="L'applicazione web permette agli utenti di cercare libri per categoria, visualizzando i
                             risultati in una griglia ordinata con copertine, titoli e autori. Cliccando su un libro,
                             l'utente può aprire una scheda con una descrizione dettagliata. Le animazioni rendono
                             l'interfaccia più accattivante e fluida, mentre la gestione degli errori garantisce
                             un’esperienza utente chiara e priva di interruzioni. Se le informazioni sui libri non sono
                             disponibili, vengono forniti avvisi visivi personalizzati per copertine mancanti e
-                            descrizioni assenti. L'applicazione è stata realizzata utilizzando WebPack, JavaScript, HTML
+                            descrizioni assenti. <br><br> L'applicazione è stata realizzata utilizzando WebPack, JavaScript, HTML
                             e CSS, sfruttando le librerie axios per le richieste HTTP, anime.js per le animazioni e
                             Letterize.js per la gestione delle animazioni del testo di sfondo. Il progetto è stato
                             deployato su Netlify.">
@@ -48,6 +48,7 @@ export default {
       details: [
         { label: 'Code', value: 'HTML, CSS, JavaScript' },
         { label: 'Framework', value: 'WebPack, axios' },
+        { label: 'API', value: 'Open Library' },
         { label: 'For', value: 'Start2impact' }
       ]
     }

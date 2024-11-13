@@ -22,7 +22,8 @@
           </div>
           <!-- Descrizione -->
           <div>
-            <p class="text-[1.3rem] lg:text-[1.5rem]">{{ description }}</p>
+
+            <p v-html="description" class="text-[1.3rem] lg:text-[1.5rem]"></p>
           </div>
         </div>
       </div>

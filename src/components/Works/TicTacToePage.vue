@@ -1,23 +1,10 @@
 <template>
-  <TemplateWorks
-    title="Tic Tac Toe"
-    :videoSrc="video"
-    :details="details"
-    description="La homepage del sito presenta
-                            inizialmente le regole del gioco, che scompaiono cliccando in un punto qualsiasi dello
-                            schermo, rivelando la tabella di gioco. La struttura minimale e intuitiva della pagina si
-                            concentra sugli elementi essenziali, quali il titolo, il giocatore corrente, la tabella di
-                            gioco e i punteggi. Al termine di ogni partita, il sito mostra il vincitore o segnala un
-                            pareggio, mantenendo il punteggio mentre il pulsante di restart consente di azzerare la
-                            tabella per iniziare una nuova partita. Il sito è stato pubblicato tramite Netlify."
-  >
-    <div
-      class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-60 py-10 px-5 lg:px-10 justify-center"
-    >
+  <TemplateWorks title="Tic Tac Toe" :videoSrc="video" :details="details"
+    description="Un'applicazione web interattiva di Tic-Tac-Toe, realizzata con Vue.js, CSS e JavaScript, pubblicata su Netlify. La homepage presenta le regole di gioco, che scompaiono al primo clic, lasciando spazio alla tabella di gioco.<br> L'interfaccia minimalista e intuitiva include il nome del gioco, il giocatore corrente, il tabellone e il conteggio dei punteggi per vittorie e pareggi, con un pulsante di reset per avviare nuove partite senza perdere i punteggi accumulati.">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-60 py-10 px-5 lg:px-10 justify-center">
       <!-- Immagine grande che occupa tutte e 4 le colonne -->
       <div
-        class="w-full rounded-2xl flex items-center h-[20rem] lg:h-[55rem] overflow-hidden col-span-2 place-self-center"
-      >
+        class="w-full rounded-2xl flex items-center h-[20rem] lg:h-[55rem] overflow-hidden col-span-2 place-self-center">
         <img :src="mockup" class="object-cover w-full h-[50rem] lg:h-full" />
       </div>
       <div class="h-fit w-full">
