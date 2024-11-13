@@ -1,14 +1,6 @@
 <template>
-  <TemplateWorks title="ReadBooks" :videoSrc="video" :details="details" description="L'applicazione web permette agli utenti di cercare libri per categoria, visualizzando i
-                            risultati in una griglia ordinata con copertine, titoli e autori. Cliccando su un libro,
-                            l'utente può aprire una scheda con una descrizione dettagliata. Le animazioni rendono
-                            l'interfaccia più accattivante e fluida, mentre la gestione degli errori garantisce
-                            un’esperienza utente chiara e priva di interruzioni. Se le informazioni sui libri non sono
-                            disponibili, vengono forniti avvisi visivi personalizzati per copertine mancanti e
-                            descrizioni assenti. <br><br> L'applicazione è stata realizzata utilizzando WebPack, JavaScript, HTML
-                            e CSS, sfruttando le librerie axios per le richieste HTTP, anime.js per le animazioni e
-                            Letterize.js per la gestione delle animazioni del testo di sfondo. Il progetto è stato
-                            deployato su Netlify.">
+  <TemplateWorks title="ReadBooks" :link="link" :videoSrc="video" :details="details"
+    description="ReadBooks è un'applicazione web avanzata, realizzata con WebPack, che consente agli utenti di cercare libri per categoria, utilizzando l'API di Open Library. L'app visualizza i risultati in una griglia interattiva con copertine, titoli, autori e descrizioni. L'interfaccia è arricchita da animazioni grazie alle librerie anime.js e Letterize.js, e offre una gestione completa degli errori di ricerca. In caso di dati mancanti, l'app mostra messaggi informativi o immagini alternative. La ricerca può essere effettuata tramite il pulsante 'Search' o premendo 'Enter'.">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-60 py-10 px-5 lg:px-10 justify-center">
       <!-- Immagine grande che occupa tutte e 4 le colonne -->
       <div
@@ -50,7 +42,8 @@ export default {
         { label: 'Framework', value: 'WebPack, axios' },
         { label: 'API', value: 'Open Library' },
         { label: 'For', value: 'Start2impact' }
-      ]
+      ],
+      link: `https://readbookshelf.netlify.app/`
     }
   }
 }

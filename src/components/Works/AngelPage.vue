@@ -1,5 +1,5 @@
 <template>
-  <TemplateWorks title="Angel" :videoSrc="video" :details="details"
+  <TemplateWorks title="Angel" :link="link" :videoSrc="video" :details="details"
     description="Angel è una web app per la gestione del tempo e delle attività quotidiane, progettata con un'interfaccia intuitiva e un design pulito per aumentare la produttività. La piattaforma consente di gestire note personali, monitorare le finanze, calcolare il tempo speso su attività e salvare password in sicurezza. <br> <br>
 
 Il front-end è sviluppato in Vue.js con Tailwind CSS e Vite, mentre il back-end utilizza Node.js e Express, supportato da MongoDB tramite Mongoose. Per garantire sicurezza e fluidità, sono stati implementati strumenti come bcryptjs per le password e multer per il caricamento dei file. Angel è ospitata su Netlify (front-end) e Render (back-end), con MongoDB Atlas come database, assicurando un’architettura scalabile. L'interfaccia è ottimizzata per dispositivi mobili, offrendo una navigazione facile e immediata.">
@@ -69,6 +69,7 @@ export default {
         { label: 'DataBase', value: 'MongoDB Atlas' },
         { label: 'For', value: 'Start2impact' }
       ],
+      link: `https://angeltask.netlify.app/`
     }
   }
 }

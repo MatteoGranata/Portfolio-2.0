@@ -1,5 +1,5 @@
 <template>
-  <TemplateWorks title="Sunnee" :videoSrc="video" :details="details"
+  <TemplateWorks title="Sunnee" :link="link" :videoSrc="video" :details="details"
     description="Un configuratore interattivo di bottiglie termiche, realizzato con Vue.js, CSS e JavaScript, e pubblicato su Netlify. L'app è organizzata in sette componenti Vue distinti, ciascuno responsabile di un'area specifica, facilitando manutenzione e gestione. L'utente può personalizzare vari elementi della bottiglia, visualizzando un'anteprima in tempo reale delle modifiche. La navigazione tra le sezioni permette la scelta del colore per ciascuna parte, con un riepilogo finale delle selezioni. La comunicazione tra componenti è gestita tramite eventi Vue, rendendo fluido il processo di configurazione.">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-60 py-10 px-5 lg:px-10 justify-center">
       <!-- Immagine grande che occupa tutte e 4 le colonne -->
@@ -50,7 +50,8 @@ export default {
       details: [
         { label: 'Code', value: 'Vue Router' },
         { label: 'For', value: 'Start2impact' }
-      ]
+      ],
+      link: `https://main--sunnee.netlify.app/`
     }
   }
 }

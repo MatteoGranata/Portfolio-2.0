@@ -19,11 +19,17 @@
               <h1>{{ detail.label }}:</h1>
               <p class="h-fit w-fit"> <span> &#10141;</span> {{ detail.value }}</p>
             </div>
+
           </div>
+
           <!-- Descrizione -->
           <div>
-
             <p v-html="description" class="text-[1.3rem] lg:text-[1.5rem]"></p>
+          </div>
+          <div>
+            <p class="text-[1.1rem] lg:text-[1.5rem] w-fit">
+              <span> &#10141;</span> <a class="cursor-alias" target="_blank" :href="link">DEMO</a>
+            </p>
           </div>
         </div>
       </div>
@@ -57,6 +63,10 @@ export default {
       default: () => []
     },
     description: {
+      type: String,
+      required: true
+    },
+    link: {
       type: String,
       required: true
     }
