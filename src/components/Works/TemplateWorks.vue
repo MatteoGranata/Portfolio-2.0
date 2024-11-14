@@ -7,7 +7,8 @@
       </div>
 
       <div class="w-full lg:h-screen relative left-0 lg:-top-5 z-0 flex justify-center mb-5 sm:mb-0">
-        <video ref="video" :src="videoSrc" class="image w-full h-full lg:object-cover" autoplay muted loop></video>
+        <video ref="video" :src="videoSrc" class="image w-full h-full lg:object-cover" autoplay muted loop
+          loading="lazy"></video>
       </div>
 
       <div class="w-full h-fit px-5 lg:px-10 mb-10 mt-5">
