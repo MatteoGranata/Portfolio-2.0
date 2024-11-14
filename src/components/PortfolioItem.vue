@@ -1,10 +1,11 @@
 <template>
-  <div ref="container" class="work-section font-[Roboto] w-fit h-fit flex flex-col justify-center">
+  <HeaderPage />
+  <div ref="container" class="font-[Roboto] w-fit h-fit flex flex-col justify-center">
     <div class="w-full h-full">
-      <HeaderPage />
       <div ref="loader" class="w-full h-screen z-50 bg-white fixed left-0 top-full"></div>
       <div class="sticky top-1/4 left-1/4 w-full h-full flex items-center justify-center font-[Raleway]">
-        <p ref="text" class="text-[6rem] sm:text-[11rem] md:text-[12rem] lg:text-[20rem] text-center w-fit h-fit">
+        <p ref="text"
+          class="work-section text-[6rem] sm:text-[11rem] md:text-[12rem] lg:text-[20rem] text-center w-fit h-fit">
           WORKS
         </p>
       </div>
