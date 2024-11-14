@@ -50,7 +50,6 @@ export default {
       const G = gsap.utils.toArray('.g')
 
       const getResponsiveValues = () => {
-        // Definisci i valori per ogni dimensione dello schermo
         if (window.innerWidth < 640) {
           // Mobile
           return {
@@ -92,13 +91,10 @@ export default {
           }
         }
       }
-
       const updateTimeline = () => {
         const { xMove, yMove, rotation, yPos, nameX, surnameX } = getResponsiveValues()
-
         const tl = gsap.timeline({ repeat: -1, yoyo: false })
-
-        tl.clear() // Pulire la timeline
+        tl.clear()
 
         tl.to([M, G], {
           rotation,
@@ -182,11 +178,11 @@ export default {
 
       updateTimeline()
 
-      window.addEventListener('resize', updateTimeline) // Aggiorna timeline al resize
+      window.addEventListener('resize', updateTimeline)
 
       onUnmounted(() => {
         ctx.revert()
-        window.removeEventListener('resize', updateTimeline) // Rimuove listener al termine
+        window.removeEventListener('resize', updateTimeline)
       })
     }, main.value)
 

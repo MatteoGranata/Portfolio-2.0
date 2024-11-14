@@ -3,22 +3,40 @@
     <HeaderPage />
     <div class="w-full h-full work-section">
       <div ref="loader" class="w-full h-screen z-50 bg-white fixed left-0 top-full"></div>
-      <div class="sticky top-1/4 left-1/4 w-full h-full flex items-center justify-center font-[Raleway]">
-        <p ref="text" class="text-[6rem] sm:text-[11rem] md:text-[12rem] lg:text-[20rem] text-center w-fit h-fit">
+      <div
+        class="sticky top-1/4 left-1/4 w-full h-full flex items-center justify-center font-[Raleway]"
+      >
+        <p
+          ref="text"
+          class="text-[6rem] sm:text-[11rem] md:text-[12rem] lg:text-[20rem] text-center w-fit h-fit"
+        >
           WORKS
         </p>
       </div>
       <div class="grid grid-cols-1 gap-10 sm:gap-60 lg:gap-0 lg:grid-cols-2 h-fit drop-shadow-md">
-        <div v-for="(image, index) in images" :key="index" :class="[
-          'section',
-          sectionClasses[index],
-          'h-max lg:h-screen w-full flex flex-col relative px-10 object-contain',
-          'perspective'
-        ]">
+        <div
+          v-for="(image, index) in images"
+          :key="index"
+          :class="[
+            'section',
+            sectionClasses[index],
+            'h-max lg:h-screen w-full flex flex-col relative px-10 object-contain',
+            'perspective'
+          ]"
+        >
           <div ref="videos" class="w-screen sm:w-fit h-fit p-4">
-            <video :src="image" :alt="titles[index]" class="image w-full h-full rounded-lg"
-              @mousemove="handleMouseMove($event, index)" @mouseleave="handleMouseLeave(index)"
-              @click="handleVideoClick(index)" autoplay muted loop loading="lazy"></video>
+            <video
+              :src="image"
+              :alt="titles[index]"
+              class="image w-full h-full rounded-lg"
+              @mousemove="handleMouseMove($event, index)"
+              @mouseleave="handleMouseLeave(index)"
+              @click="handleVideoClick(index)"
+              autoplay
+              muted
+              loop
+              loading="lazy"
+            ></video>
             <div class="sm:text-2xl flex justify-between w-full h-fit">
               <p class="">{{ titles[index] }}</p>
               <p class="">{{ others[index] }}</p>
@@ -124,21 +142,15 @@ export default {
   methods: {
     handleVideoClick(index) {
       const loader = this.$refs.loader
-      // Seleziona il video cliccato
-      // const container = this.$refs.container;
-
-      // Animazione di espansione
       gsap.fromTo(
         loader,
         { top: '100%', backgroundColor: this.colors[index] },
         {
-          duration: 1, // Durata dell'animazione
+          duration: 1,
           top: 0,
-          ease: 'power3.in', // Effetto easing
+          ease: 'power3.in',
           onComplete: () => {
-            // Una volta terminata l'animazione, mostra il nuovo componente
             this.$router.push({ path: this.path[index] }).then(() => {
-              // Ricarica la pagina solo dopo che la navigazione è stata completata
               localStorage.setItem('textColor', this.colors[index])
               localStorage.setItem('color', this.textColors[index])
               window.location.reload()
@@ -148,62 +160,54 @@ export default {
       )
     },
     handleMouseMove(event, index) {
-      const video = this.$refs.videos[index] // Ottieni il video corrispondente
+      const video = this.$refs.videos[index]
       const container = this.$refs.container
       const text = this.$refs.text
       const rect = video.getBoundingClientRect()
 
-      // Calcola le posizioni relative del mouse
       const mouseX = event.clientX - rect.left
       const mouseY = event.clientY - rect.top
 
-      // Calcola la rotazione in base alla posizione del mouse
-      const rotateX = (mouseY / rect.height - 0.5) * -7 // Rotazione sull'asse X
-      const rotateY = (mouseX / rect.width - 0.5) * 7 // Rotazione sull'asse Y
+      const rotateX = (mouseY / rect.height - 0.5) * -7
+      const rotateY = (mouseX / rect.width - 0.5) * 7
 
-      // Cambia il colore dello sfondo in base all'indice del video
-
-      // Utilizza GSAP per animare la trasformazione con perspective
       gsap.to(video, {
-        duration: 0.3, // Durata dell'animazione
-        rotationX: rotateX, // Applica la rotazione calcolata sull'asse X
-        rotationY: rotateY, // Applica la rotazione calcolata sull'asse Y
-        ease: 'power2.out', // Effetto di easing
-        transformOrigin: '50% 50%' // Origine della trasformazione
+        duration: 0.3,
+        rotationX: rotateX,
+        rotationY: rotateY,
+        ease: 'power2.out',
+        transformOrigin: '50% 50%'
       })
       gsap.to(container, {
-        duration: 0.5, // Durata dell'animazione
+        duration: 0.5,
         backgroundColor: this.colors[index],
-        ease: 'power2.out' // Effetto di easing
+        ease: 'power2.out'
       })
       gsap.to(text, {
-        duration: 0.5, // Durata dell'animazione
+        duration: 0.5,
         color: this.textColors[index],
-        ease: 'power2.out' // Effetto di easing
+        ease: 'power2.out'
       })
     },
     handleMouseLeave(index) {
-      const video = this.$refs.videos[index] // Ottieni il video corrispondente
+      const video = this.$refs.videos[index]
       const container = this.$refs.container
       const text = this.$refs.text
-      // Utilizza GSAP per riportare la trasformazione a zero (posizione originale)
       gsap.to(video, {
-        duration: 0.5, // Durata dell'animazione
-        rotationX: 0, // Ripristina la rotazione sull'asse X
-        rotationY: 0, // Ripristina la rotazione sull'asse Y
-        ease: 'power2.inOut' // Effetto di easing
+        duration: 0.5,
+        rotationX: 0,
+        rotationY: 0,
+        ease: 'power2.inOut'
       })
-      // Ripristina il colore di sfondo originale
       gsap.to(container, {
-        duration: 0.5, // Durata dell'animazione
+        duration: 0.5,
         backgroundColor: 'transparent',
-        ease: 'power2.out' // Effetto di easing
+        ease: 'power2.out'
       })
-
       gsap.to(text, {
-        duration: 0.5, // Durata dell'animazione
+        duration: 0.5,
         color: '',
-        ease: 'power2.inOut' // Effetto di easing
+        ease: 'power2.inOut'
       })
     }
   }
@@ -212,8 +216,6 @@ export default {
 
 <style scoped>
 .section {
-  /* Assicurati che non ci siano sovrapposizioni */
   perspective: 1000px;
-  /* Imposta la prospettiva per l'effetto 3D */
 }
 </style>

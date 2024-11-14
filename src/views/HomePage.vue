@@ -26,7 +26,6 @@
       </div>
     </div>
   </div>
-  <!-- Il contenuto principale della pagina sarà visibile solo quando loading è false -->
   <PortfolioItem />
 </template>
 
@@ -40,9 +39,9 @@ export default {
   },
   data() {
     return {
-      letters: [...'.M.A.T.T.E.O.G.R.A.N.A.T.A..'], // Dividi il nome in singole lettere
-      letterRefs: [], // Array per tenere i riferimenti a ogni lettera
-      loading: true // Variabile per gestire la visibilità del preloader
+      letters: [...'.M.A.T.T.E.O.G.R.A.N.A.T.A..'],
+      letterRefs: [],
+      loading: true
     }
   },
   mounted() {
@@ -62,62 +61,57 @@ export default {
       }
     },
     getRandomPosition(min, max) {
-      return Math.random() * (max - min) + min // Restituisce valore casuale tra min e max
+      return Math.random() * (max - min) + min
     },
     animateLetters() {
       const { xPosition, yPosition } = this.getResponsiveValues()
       const tl = gsap.timeline({
-        repeat: false, // Animazione non ripetuta
+        repeat: false,
         yoyo: false,
         repeatDelay: false,
-        onComplete: this.hidePreloader // Nasconde il preloader al termine
+        onComplete: this.hidePreloader
       })
-
-      // Prima fase: le lettere si muovono verso il centro
       this.letterRefs.forEach((letter, index) => {
         tl.fromTo(
           letter,
           {
             x: this.getRandomPosition(-xPosition, xPosition),
             y: this.getRandomPosition(-yPosition, yPosition),
-            opacity: 1 // Visibili all'inizio
+            opacity: 1
           },
           {
             rotate: 90,
-            x: 0, // Raggiungono il centro
-            y: 0, // Raggiungono il centro
-            opacity: 0, // Si fondono scomparendo
-            duration: 1.5, // Durata dell'animazione
-            delay: index * 0.05, // Ritardo per creare l'effetto a catena
-            ease: 'expo.inOut' // Easing per un movimento fluido
+            x: 0,
+            y: 0,
+            opacity: 0,
+            duration: 1.5,
+            delay: index * 0.05,
+            ease: 'expo.inOut'
           },
           0
         )
       })
 
-      // Seconda fase: dopo che tutte le lettere sono scomparse, appaiono le lettere "G" e "M"
       tl.to(
         this.$refs.letterG,
         {
           opacity: 1,
-          scale: 1, // Scala "G"
-          duration: 1, // Durata dell'animazione
-          ease: 'power2.inOut' // Easing fluido
+          scale: 1,
+          duration: 1,
+          ease: 'power2.inOut'
         },
         '-=.7'
-      ) // Inizia leggermente prima della fine della scomparsa delle lettere
-
+      )
       tl.to(
         this.$refs.letterM,
         {
-          opacity: 1, // Mostra "M"
-          scale: 1, // Scala "M"
-          duration: 1, // Durata dell'animazione
-          ease: 'power2.inOut' // Easing fluido
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: 'power2.inOut'
         },
         '-=1'
       )
-      // Fase finale: nascondi il contenitore del preloader
       tl.to(this.$refs.container, {
         y: '100%',
         duration: 1,
@@ -125,12 +119,12 @@ export default {
       })
       tl.to([this.$refs.letterM, this.$refs.letterG], {
         duration: 0,
-        display: 'none' // Mostra "M"
+        display: 'none'
       }),
         '-=.1'
     },
     hidePreloader() {
-      this.loading = false // Nascondi il preloader e mostra la pagina
+      this.loading = false
     }
   }
 }

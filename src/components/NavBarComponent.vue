@@ -1,6 +1,5 @@
 <template>
   <nav class="fixed w-full h-fit font-[Roboto] z-10" :style="{ color: textColor }">
-    <!-- Navbar principale -->
     <div v-if="isMainPage" class="flex justify-between w-full p-4">
       <div @mouseover="onMouseOver" @mouseleave="onMouseleave" class="flex z-50">
         <button
@@ -23,8 +22,6 @@
         {{ time }}
       </p>
     </div>
-
-    <!-- Navbar alternativa per le sottopagine -->
     <div v-else class="flex justify-between w-full p-4">
       <div class="flex z-50">
         <button
@@ -55,13 +52,11 @@ export default {
   },
   computed: {
     isMainPage() {
-      // Controlla se il percorso è la homepage, per mostrare la navbar principale
       return this.$route.path === '/'
     }
   },
   methods: {
     goBack() {
-      // Torna alla pagina principale
       this.$router.push({ path: '/' })
     },
     scrollToWork() {
@@ -70,9 +65,10 @@ export default {
         workSection.scrollIntoView({ behavior: 'smooth' })
         history.pushState(null, '', window.location.pathname)
       } else {
-        this.$router.push({ path: '/' })
-        this.textColor = ''
-        localStorage.clear()
+        this.$router.push({ path: '/' }).then(() => {
+          this.textColor = ''
+          localStorage.clear()
+        })
       }
     },
     scrollToAbout() {

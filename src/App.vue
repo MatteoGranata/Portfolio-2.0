@@ -21,9 +21,7 @@ export default {
   mounted() {
     gsap.registerPlugin(ScrollTrigger)
     let tl = gsap.timeline({ yoyo: true })
-
     const Container = gsap.utils.toArray('.container-effect')
-
     tl.fromTo(
       Container,
       { backgroundColor: '#DD5E3F', color: '#EADAAD' },

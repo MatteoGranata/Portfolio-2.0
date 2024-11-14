@@ -56,13 +56,10 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 
-  // Comportamento scroll per gestire gli hash (#)
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
-      // Se c'è una posizione salvata (es. tornando indietro), scrolla lì
       return savedPosition
     } else {
-      // Altrimenti scrolla in cima
       return { top: 0 }
     }
   }

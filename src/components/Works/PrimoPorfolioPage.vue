@@ -9,7 +9,6 @@
     <div
       class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-60 py-10 px-5 lg:px-10 justify-center"
     >
-      <!-- Immagine grande che occupa tutte e 4 le colonne -->
       <div
         class="w-full rounded-2xl flex items-center h-[20rem] lg:h-[50rem] overflow-hidden col-span-2 place-self-center"
       >
@@ -58,7 +57,7 @@ export default {
         { label: 'Code', value: 'HTML, CSS' },
         { label: 'For', value: 'Start2impact' }
       ],
-      link: `https://talent.start2impact.it/corsi/javascript-advanced#project_to_show`
+      link: `https://matteogranata.github.io/Portfolio/`
     }
   }
 }
