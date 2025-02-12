@@ -8,6 +8,8 @@
           <p class="h-fit w-fit rounded-xl py-1 px-3">&#10141; CSS</p>
           <p class="h-fit w-fit rounded-xl py-1 px-3">&#10141; JavaScript</p>
           <p class="h-fit w-fit rounded-xl py-1 px-3">&#10141; Vue3.js</p>
+          <p class="h-fit w-fit rounded-xl py-1 px-3">&#10141; React</p>
+          <p class="h-fit w-fit rounded-xl py-1 px-3">&#10141; Redux</p>
           <p class="h-fit w-fit rounded-xl py-1 px-3">&#10141; Node</p>
           <p class="h-fit w-fit rounded-xl py-1 px-3">&#10141; TailwindCSS</p>
           <p class="h-fit w-fit rounded-xl py-1 px-3">&#10141; GSAP</p>
@@ -21,9 +23,7 @@
             Sono un <span class="font-semibold">Full-Stack Developer</span> con una formazione in
             <span class="font-semibold">grafica pubblicitaria</span> e una forte passione per la
             programmazione. Ho completato un corso full-stack presso
-            <a href="https://www.start2impact.it/" class="underline hover:text-[#ddc88f]"
-              >start2impact</a
-            >.
+            <a href="https://www.start2impact.it/" class="underline hover:text-[#ddc88f]">start2impact</a>.
           </p>
           <p class="mt-4">
             Durante il mio percorso, ho realizzato progetti personali che esprimono il mio impegno
@@ -35,12 +35,8 @@
       </div>
     </div>
     <div class="w-full h-full px-3 md:p-3">
-      <div class="w-[99%] h-fit border-t-2 py-2 md:py-0">
-        <a
-          class="text-[1.8rem] md:text-[4rem]"
-          target="_blank"
-          href="mailto:granata.matteo.j@gmail.com"
-        >
+      <div class="w-[99%] h-fit text-center md:text-start border-t-2 py-2 md:py-0">
+        <a class="text-[1.4rem] md:text-[4rem]" target="_blank" href="mailto:granata.matteo.j@gmail.com">
           granata.matteo.j@gmail.com
         </a>
       </div>
@@ -49,17 +45,11 @@
       <div class="w-[99%] h-fit border-t-2 text-[1.1rem] md:text-[2rem] py-5 flex justify-between">
         <div>
           <span> &#10141;</span>
-          <a
-            class="mr-5 hover:underline"
-            target="_blank"
-            href="https://www.linkedin.com/in/granata-matteo/"
-          >
+          <a class="mr-5 hover:underline" target="_blank" href="https://www.linkedin.com/in/granata-matteo/">
             Linkedin
           </a>
           <span class="ml-5">&#10141;</span>
-          <a class="hover:underline" target="_blank" href="https://github.com/MatteoGranata"
-            >GitHub</a
-          >
+          <a class="hover:underline" target="_blank" href="https://github.com/MatteoGranata">GitHub</a>
         </div>
         <p>© 2024</p>
       </div>
