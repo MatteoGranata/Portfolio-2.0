@@ -94,7 +94,7 @@ export default {
         '#FCBA69', // Colore per Readbooks
         '#0D0D0D', // Colore per Tic-Tac-toe
         '#FFDEAD', // Colore per Sunnee
-        '#FFDEAD', // Colore per ny clone
+        '#FFFF', // Colore per ny clone
         '#F8F8FF' // Colore per angel
       ],
       textColors: [
