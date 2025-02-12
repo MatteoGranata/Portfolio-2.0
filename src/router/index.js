@@ -7,6 +7,7 @@ const Counter = () => import('../components/Works/CounterPage.vue')
 const ReadBooks = () => import('../components/Works/ReadBooksPage.vue')
 const TicTacToe = () => import('../components/Works/TicTacToePage.vue')
 const Sunnee = () => import('../components/Works/SunneePage.vue')
+const NytClone = () => import('../components/Works/NyClonePage.vue')
 const Angel = () => import('../components/Works/AngelPage.vue')
 
 const routes = [
@@ -44,6 +45,11 @@ const routes = [
     path: '/sunnee',
     name: 'sunnee',
     component: Sunnee
+  },
+  {
+    path: '/nyt-clone',
+    name: 'nyt-clone',
+    component: NytClone
   },
   {
     path: '/angel',

@@ -3,41 +3,22 @@
     <HeaderPage />
     <div class="w-full h-full work-section">
       <div ref="loader" class="w-full h-screen z-50 bg-white fixed left-0 top-full"></div>
-      <div
-        class="sticky top-1/4 left-1/4 w-full h-full flex items-center justify-center font-[Raleway]"
-      >
-        <p
-          ref="text"
-          class="text-[6rem] sm:text-[11rem] md:text-[12rem] lg:text-[20rem] text-center w-fit h-fit"
-        >
+      <div class="sticky top-1/4 left-1/4 w-full h-full flex items-center justify-center font-[Raleway]">
+        <p ref="text" class="text-[6rem] sm:text-[11rem] md:text-[12rem] lg:text-[20rem] text-center w-fit h-fit">
           WORKS
         </p>
       </div>
       <div class="grid grid-cols-1 gap-10 sm:gap-60 lg:gap-0 lg:grid-cols-2 h-fit drop-shadow-md">
-        <div
-          v-for="(image, index) in images"
-          :key="index"
-          :class="[
-            'section',
-            sectionClasses[index],
-            'h-max lg:h-screen w-full flex flex-col relative px-10 object-contain',
-            'perspective'
-          ]"
-        >
+        <div v-for="(image, index) in images" :key="index" :class="[
+          'section',
+          sectionClasses[index],
+          'h-max lg:h-screen w-full flex flex-col relative px-10 object-contain',
+          'perspective'
+        ]">
           <div ref="videos" class="w-screen sm:w-fit h-fit p-4">
-            <video
-              :src="image"
-              :alt="titles[index]"
-              class="image w-full h-full rounded-lg"
-              @mousemove="handleMouseMove($event, index)"
-              @mouseleave="handleMouseLeave(index)"
-              @click="handleVideoClick(index)"
-              autoplay
-              muted
-              loop
-              playsinline
-              loading="lazy"
-            ></video>
+            <video :src="image" :alt="titles[index]" class="image w-full h-full rounded-lg"
+              @mousemove="handleMouseMove($event, index)" @mouseleave="handleMouseLeave(index)"
+              @click="handleVideoClick(index)" autoplay muted loop playsinline loading="lazy"></video>
             <div class="sm:text-2xl flex justify-between w-full h-fit">
               <p class="">{{ titles[index] }}</p>
               <p class="">{{ others[index] }}</p>
@@ -63,6 +44,7 @@ import CounterVideo from '../assets/video/Registrazione_Contatore.mp4'
 import ReadBooksVideo from '../assets/video/Registrazione_ReadBooks.mp4'
 import TicTacToeVideo from '../assets/video/Registrazione_Tic-Tac-Toe.mp4'
 import SunneeVideo from '../assets/video/Registrazione_Sunnee.mp4'
+import NewYorkTimesClone from '../assets/video/Registrazione_New_York_Times_Clone.mp4'
 import AngelVideo from '../assets/video/Registrazione_Angel.mp4'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -82,6 +64,7 @@ export default {
         'ReadBooks',
         'Tic Tac Toe',
         'Sunnee',
+        'New York Times Clone',
         'Angel'
       ],
       others: [
@@ -90,8 +73,9 @@ export default {
         'JavaScript', // counter
         'JavaScript | HTML | CSS - Webpack - axios', // readbooks
         'Vue', // tic tac toe
-        'Vue Router', // sunnee
-        'Vue Router | Node - TailwindCSS - MongoDB Atlas' // angel
+        'Vue Vue-Router', // sunnee
+        'React Redux React-router | TailwindCSS', // ny clone
+        'Vue Vue-Router | Node - TailwindCSS - MongoDB Atlas' // angel
       ],
       images: [
         PrimoPortfolioVideo,
@@ -100,6 +84,7 @@ export default {
         ReadBooksVideo,
         TicTacToeVideo,
         SunneeVideo,
+        NewYorkTimesClone,
         AngelVideo
       ],
       colors: [
@@ -109,6 +94,7 @@ export default {
         '#FCBA69', // Colore per Readbooks
         '#0D0D0D', // Colore per Tic-Tac-toe
         '#FFDEAD', // Colore per Sunnee
+        '#FFDEAD', // Colore per ny clone
         '#F8F8FF' // Colore per angel
       ],
       textColors: [
@@ -118,6 +104,7 @@ export default {
         '#000000', // Colore per ReadBooks
         '#E4DFD9', // Colore per Tic-Tac-Toe
         '#000000', // Colore per Sunnee
+        '#000000', // Colore per ny clone
         '#1E293B' // Colore per angel
       ],
       sectionClasses: [
@@ -127,7 +114,8 @@ export default {
         'justify-end sm:items-end items-center',
         'justify-center sm:items-start items-center',
         'justify-end sm:items-end items-center',
-        'justify-center sm:items-start items-center'
+        'justify-center sm:items-start items-center',
+        'justify-end sm:items-end items-center'
       ],
       path: [
         '/primo-portfolio',
@@ -136,6 +124,7 @@ export default {
         '/readbooks',
         '/tic-tac-toe',
         '/sunnee',
+        '/nyt-clone',
         '/angel'
       ]
     }
